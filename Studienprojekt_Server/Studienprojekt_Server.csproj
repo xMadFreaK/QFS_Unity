@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ByteBuffer">
+      <HintPath>..\..\..\ByteBuffer\ByteBuffer\ByteBuffer\bin\Debug\netstandard2.0\ByteBuffer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

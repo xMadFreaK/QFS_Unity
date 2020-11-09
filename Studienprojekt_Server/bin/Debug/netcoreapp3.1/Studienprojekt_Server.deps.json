@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Studienprojekt_Server/1.0.0": {
+        "runtime": {
+          "Studienprojekt_Server.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Studienprojekt_Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
