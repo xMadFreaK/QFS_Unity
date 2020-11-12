@@ -750,6 +750,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1864228492160633026, guid: 76db342bb4d31ac47a02caf8892125d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76db342bb4d31ac47a02caf8892125d0, type: 3}
 --- !u!224 &1679895119419124611 stripped
@@ -998,6 +1003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MatchmakingScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953088850511092773, guid: 6f34748084f3f494190ab4008c5c3406,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6475606831819953692, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
@@ -1372,6 +1382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7223245527688770415, guid: 8255df1e52003054e9ca7a503a1f3fcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8255df1e52003054e9ca7a503a1f3fcd, type: 3}
 --- !u!224 &7198902673102221343 stripped
@@ -1520,6 +1535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AccountCreationScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202017710097472976, guid: 8b0673ac5fe979b429dd6cd80377c4ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9202017710097472983, guid: 8b0673ac5fe979b429dd6cd80377c4ba,
         type: 3}
