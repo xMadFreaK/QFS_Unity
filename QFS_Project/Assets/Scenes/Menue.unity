@@ -309,7 +309,7 @@ RectTransform:
   m_GameObject: {fileID: 1198236246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.9853997, y: 4.9853997, z: 4.9853997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1631084782}
   m_RootOrder: 0
@@ -647,11 +647,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatisticScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 6484897127634129640, guid: e1c86fda9bbae2a4daae162d03a412c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8184223932851968530, guid: e1c86fda9bbae2a4daae162d03a412c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -876,11 +871,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MatchmakingScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 4953088850511092773, guid: 6f34748084f3f494190ab4008c5c3406,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4953088850944866077, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -899,11 +889,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LogInScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200343363608477536, guid: 7fb02cb05f9424041919f73e44b65c14,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6200343363608477537, guid: 7fb02cb05f9424041919f73e44b65c14,
         type: 3}
@@ -1134,11 +1119,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 7284208289656863008, guid: 4cfa8459b0c73274e86784843dc11537,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7284208289954414880, guid: 4cfa8459b0c73274e86784843dc11537,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -1149,11 +1129,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1849929575}
-    - target: {fileID: 7284208291087775307, guid: 4cfa8459b0c73274e86784843dc11537,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cfa8459b0c73274e86784843dc11537, type: 3}
 --- !u!1001 &9202017710491367147
@@ -1167,11 +1142,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AccountCreationScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 9202017710097472976, guid: 8b0673ac5fe979b429dd6cd80377c4ba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9202017710097472983, guid: 8b0673ac5fe979b429dd6cd80377c4ba,
         type: 3}
