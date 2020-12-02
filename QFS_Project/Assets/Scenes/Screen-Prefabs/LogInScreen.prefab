@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6200343363608477537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -217,10 +217,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6200343363608477537}
     m_Modifications:
+    - target: {fileID: 6507346811523720169, guid: aff2246164973a341a1a052a2df09894,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507346811523720169, guid: aff2246164973a341a1a052a2df09894,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507346811523720169, guid: aff2246164973a341a1a052a2df09894,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507346811523720169, guid: aff2246164973a341a1a052a2df09894,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.0221874e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507346811523720169, guid: aff2246164973a341a1a052a2df09894,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507346811523720170, guid: aff2246164973a341a1a052a2df09894,
+        type: 3}
+      propertyPath: m_text
+      value: Log In
+      objectReference: {fileID: 0}
     - target: {fileID: 6507346811926255660, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
       propertyPath: m_Name
-      value: MediumSizeButton
+      value: LogInMediumSizeButton
       objectReference: {fileID: 0}
     - target: {fileID: 6507346811926255661, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
@@ -280,17 +310,17 @@ PrefabInstance:
     - target: {fileID: 6507346811926255661, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6507346811926255661, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -240
       objectReference: {fileID: 0}
     - target: {fileID: 6507346811926255661, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -440
       objectReference: {fileID: 0}
     - target: {fileID: 6507346811926255661, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
@@ -420,7 +450,7 @@ PrefabInstance:
     - target: {fileID: 6507346811926255661, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -442
+      value: -440
       objectReference: {fileID: 0}
     - target: {fileID: 6507346811926255661, guid: aff2246164973a341a1a052a2df09894,
         type: 3}
