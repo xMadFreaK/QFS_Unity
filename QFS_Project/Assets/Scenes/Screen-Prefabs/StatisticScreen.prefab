@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8184223932851968530
 RectTransform:
   m_ObjectHideFlags: 0
@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TinySizeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6700469885130623817, guid: c199b63f6526cd94d83b893ac0fff447,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6484897127634129640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c199b63f6526cd94d83b893ac0fff447, type: 3}
 --- !u!224 &6211423137729349461 stripped
