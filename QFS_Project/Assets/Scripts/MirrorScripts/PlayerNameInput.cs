@@ -37,4 +37,5 @@ public class PlayerNameInput : MonoBehaviour // sitting on UI where player enter
         DisplayName = nameInputField.text; // the static string DisplayName is set to the text entered into name input field
         PlayerPrefs.SetString(PlayerPrefsNameKey, DisplayName); // text is saved to player prefs
     }
+    
 }
