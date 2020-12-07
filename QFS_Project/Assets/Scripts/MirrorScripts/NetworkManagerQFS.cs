@@ -43,7 +43,7 @@ public class NetworkManagerQFS : NetworkManager // our own manager. overrides mi
             return;
         }
         // if player is not in the menu scene, disconnet them - players cannot join game in progress
-        if (SceneManager.GetActiveScene().name != menuScene) {
+        if (SceneManager.GetActiveScene().path != menuScene) {
             conn.Disconnect();
             return;
         }
@@ -51,7 +51,7 @@ public class NetworkManagerQFS : NetworkManager // our own manager. overrides mi
 
     // called on the server when client adds a new player with ClientSceneAddPlayer (in the OnClientConnect method)
     public override void OnServerAddPlayer (NetworkConnection conn) {
-        if (SceneManager.GetActiveScene().name == menuScene) { // if we are in the menu scene, spawn in the room player prefab
+        if (SceneManager.GetActiveScene().path == menuScene) { // if we are in the menu scene, spawn in the room player prefab
             NetworkRoomPlayerQFS roomPlayerInstance = Instantiate(roomPlayerPrefab);
             NetworkServer.AddPlayerForConnection(conn, roomPlayerInstance.gameObject);
         }

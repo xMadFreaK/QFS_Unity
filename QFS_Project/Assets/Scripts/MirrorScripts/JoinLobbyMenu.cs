@@ -20,8 +20,8 @@ public class JoinLobbyMenu : MonoBehaviour
     }
 
     private void OnDisable() {
-        NetworkManagerQFS.OnClientConnected += HandleClientConnected;
-        NetworkManagerQFS.OnClientDisconnected += HandleClientDisconnected;
+        NetworkManagerQFS.OnClientConnected -= HandleClientConnected;
+        NetworkManagerQFS.OnClientDisconnected -= HandleClientDisconnected;
     }
 
     // called upon click on "join" button
