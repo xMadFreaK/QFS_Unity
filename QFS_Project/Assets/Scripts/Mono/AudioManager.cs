@@ -1,15 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-[System.Serializable()]
-public struct SoundParameters
-{
-    [Range(0, 1)]
-    public float Volume;
-    [Range(-3, 3)]
-    public float Pitch;
-    public bool Loop;
-}
+
 [System.Serializable()]
 public class Sound
 {
@@ -20,22 +13,27 @@ public class Sound
 
     [SerializeField]    AudioClip           clip            = null;
     public              AudioClip           Clip            { get { return clip; } }
-
-    [SerializeField]    SoundParameters     parameters      = new SoundParameters();
-    public              SoundParameters     Parameters      { get { return parameters; } }
-
+    
+    public float Volume;
+    
+    public float Pitch;
+    public bool Loop;
+    
+    
+    
     [HideInInspector]
     public              AudioSource         Source          = null;
+    
 
     #endregion
 
     public void Play ()
     {
+        
         Source.clip = Clip;
-
-        Source.volume = Parameters.Volume;
-        Source.pitch = Parameters.Pitch;
-        Source.loop = Parameters.Loop;
+        Source.volume = Volume;
+        Source.pitch = 1;
+        Source.loop = Loop;
 
         Source.Play();
     }
@@ -55,6 +53,13 @@ public class AudioManager : MonoBehaviour {
 
     [SerializeField]    String          startupTrack    = String.Empty;
 
+    private static readonly string FirstPlay = "FirstPlay";
+    private static readonly string gamemusicPref = "gamemusicPref";
+    private static readonly string soundeffectPref = "soundeffectPref";
+    private int firstPlayInt;
+    public Slider gamemusicSlider, soundeffectSlider;
+    private float gamemusicFloat, soundeffectFloat;
+    
     #endregion
 
     #region Default Unity methods
@@ -72,18 +77,49 @@ public class AudioManager : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
         }
         InitSounds();
-    }
+        UpdateGameSound();
+        UpdateSoundEffects();
+    } 
     /// <summary>
     /// Function that is called when the script instance is being loaded.
     /// </summary>
     void Start()
     {
-        if (string.IsNullOrEmpty(startupTrack) != true)
+        
+            firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+        
+        if (firstPlayInt == 0)
         {
-            PlaySound(startupTrack);
+            gamemusicFloat = .25f;
+            soundeffectFloat = .75f;
+            gamemusicSlider.value = gamemusicFloat;
+            soundeffectSlider.value = soundeffectFloat;
+            PlayerPrefs.SetFloat(gamemusicPref, gamemusicFloat);
+            PlayerPrefs.SetFloat(soundeffectPref, soundeffectFloat);
+            PlayerPrefs.SetInt(FirstPlay, -1);
+            
+        }
+        else
+        {
+            gamemusicFloat = PlayerPrefs.GetFloat(gamemusicPref);
+            gamemusicSlider.value = gamemusicFloat;
+            soundeffectFloat = PlayerPrefs.GetFloat(soundeffectPref);
+            soundeffectSlider.value = soundeffectFloat;
+        }
+        PlaySound(startupTrack);
+    }
+    public void SaveSoundSettings()
+    {
+        PlayerPrefs.SetFloat(gamemusicPref, gamemusicSlider.value);
+        PlayerPrefs.SetFloat(soundeffectPref, soundeffectSlider.value);
+    }
+    void OnApplicationFocus(bool inFocus)
+    {
+        if (!inFocus)
+        {
+            SaveSoundSettings();
         }
     }
-
     #endregion
 
     /// <summary>
@@ -130,6 +166,23 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound by the name " + name + " is not found! Issues occured at AudioManager.StopSound()");
         }
     }
+    public void UpdateGameSound()
+    {
+        
+        var Gamemusic = GetSound(startupTrack);
+            Gamemusic.Volume = gamemusicSlider.value;
+    }
+    public void UpdateSoundEffects()
+    {
+        foreach (var sound in sounds)
+        {
+            if (sound != GetSound(startupTrack))
+            {
+                sound.Volume = soundeffectSlider.value;
+            }
+        }
+    }
+
 
     #region Getters
 
@@ -144,6 +197,6 @@ public class AudioManager : MonoBehaviour {
         }
         return null;
     }
-
+    
     #endregion
 }
