@@ -9,42 +9,42 @@ using TMPro;
 
 public class PlayerScores : MonoBehaviour {
     public TextMeshProUGUI scoreText;
-    public TMP_InputField getScoreText;
+
+    public TMP_InputField getScoreText;                 //(Dein Nutzername)
 
     public TMP_InputField emailText;
     public TMP_InputField usernameText;
     public TMP_InputField passwordText;
 
-    private System.Random random = new System.Random();
+    private System.Random random = new System.Random();  //Randomizer object for the simple algorithm in start function
 
     User1 user = new User1();
 
-    private string databaseURL = "https://qfs-project-8f937-default-rtdb.firebaseio.com/users";
-    private string AuthKey = "AIzaSyBIJQdnJD19yLV3RxVXYIxJfJS_SXsq5Hk";
+    private string databaseURL = "https://qfs-project-8f937-default-rtdb.firebaseio.com/users";     //unique URL to connect to our realtime database
+    private string AuthKey = "AIzaSyBIJQdnJD19yLV3RxVXYIxJfJS_SXsq5Hk";                             //unique WEB-API-Key
 
-    public static fsSerializer serializer = new fsSerializer();
+    public static fsSerializer serializer = new fsSerializer();                                     
 
 
-    public static int playerScore;
+    public static int playerScore;          //only to put the random number in the first field scoreText
     public static string playerName;
+    public static int matches;
 
-    private string idToken;
-
-    public static string localId;
+    private string idToken;                 //Is always created when the user signs in
+    public static string localId;           //The unique Id for each user
 
     private string getLocalId;
-
 
     private void Start() {
         playerScore = random.Next(0, 101);
         scoreText.text = "Score: " + playerScore;
     }
 
-    public void OnSubmit() {
+    public void OnSubmit() {                //for button-Click Submit
         PostToDatabase();
     }
 
-    public void OnGetScore() {
+    public void OnGetScore() {              
         GetLocalId();
     }
 
@@ -57,6 +57,7 @@ public class PlayerScores : MonoBehaviour {
 
         if (emptyScore) {
             user.userScore = 0;
+            user.matches = 10;
         }
 
         RestClient.Put(databaseURL + "/" + localId + ".json?auth=" + idToken, user);
@@ -70,29 +71,32 @@ public class PlayerScores : MonoBehaviour {
         });
     }
 
+    // Button-Click "Register" (Authentification)
     public void SignUpUserButton() {
-        SignUpUser(emailText.text, usernameText.text, passwordText.text);
+        SignUpUser(emailText.text, usernameText.text, passwordText.text);       // parameters are the text from the InputFields
     }
 
+    //Button-Click "SignIn" (Authentification)
     public void SignInUserButton() {
         SignInUser(emailText.text, passwordText.text);
     }
 
+    // Register new User (Authentification)
     private void SignUpUser(string email, string username, string password) {
-        string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
-        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(
-            response => {
-                idToken = response.idToken;
-                localId = response.localId;
-                playerName = username;
-                PostToDatabase(true);
-
+        string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";             // in JSON-format
+        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(   // Register the User to Firebase
+            response => { // response is a SignResponse object, FireBase gives us this response
+                idToken = response.idToken;                         // everytime generated when the users signs in
+                localId = response.localId;                         // unique UserId
+                playerName = username;                              
+                PostToDatabase(true);                               //when register a new user parameter true for the method, so we know its a new user
+                                                                    // (Realtime-Database)
             }).Catch(error =>
             {
                 Debug.Log(error);
             });
     }
-
+    //LogIn User
     private void SignInUser(string email, string password) {
         string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
         RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + AuthKey, userData).Then(
@@ -100,6 +104,7 @@ public class PlayerScores : MonoBehaviour {
                 idToken = response.idToken;
                 localId = response.localId;
                 GetUsername();
+                //Here missing matches, wins, etc.
             }).Catch(error =>
             {
                 Debug.Log(error);
