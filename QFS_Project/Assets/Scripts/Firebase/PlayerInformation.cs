@@ -106,7 +106,7 @@ public class PlayerInformation : MonoBehaviour {
                 panelManager.SwitchCanvas(PanelType.MainScreen);
                 GetUserInformation();
             }).Catch(error => {
-                Debug.Log(error);
+                Debug.Log(error.Message);
             });
     }
 
@@ -129,7 +129,7 @@ public class PlayerInformation : MonoBehaviour {
 
 
         }).Catch(error => {
-            Debug.Log(error);
+            Debug.Log(error.Message);
         });
     }
 

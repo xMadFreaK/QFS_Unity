@@ -13,7 +13,8 @@ public enum PanelType {
     GameScreen,
     SettingScreen,
     ResultScreen,
-    LOGINSCREENTEST
+    LOGINSCREENTEST,
+    GAME
 }
 
 
