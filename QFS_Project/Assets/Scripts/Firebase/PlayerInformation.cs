@@ -25,6 +25,7 @@ public class PlayerInformation : MonoBehaviour {
     public TextMeshProUGUI quantityLoggedInText;
     public TextMeshProUGUI clicksText;
 
+    public PanelManager panelManager;
 
     User2 user = new User2();
 
@@ -70,6 +71,8 @@ public class PlayerInformation : MonoBehaviour {
                 PostToDatabase(true);                               //when register a new user parameter true for the method, so we know its a new user
                                                                     // (Realtime-Database)
 
+                panelManager = PanelManager.GetInstance();
+                panelManager.SwitchCanvas(PanelType.LogInScreen);
             }).Catch(error => {
                 Debug.Log(error);
             });
@@ -99,9 +102,9 @@ public class PlayerInformation : MonoBehaviour {
                 idToken = response.idToken;
                 localId = response.localId;
 
-                quantityLoggedIn++;
+                panelManager = PanelManager.GetInstance();
+                panelManager.SwitchCanvas(PanelType.MainScreen);
                 GetUserInformation();
-                //Here missing matches, wins, etc.
             }).Catch(error => {
                 Debug.Log(error);
             });
