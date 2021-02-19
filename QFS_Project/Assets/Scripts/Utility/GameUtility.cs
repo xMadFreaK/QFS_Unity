@@ -7,7 +7,7 @@ public class GameUtility {
     public const float ResolutionDelayTime = 1;
     public const string SavePrefKey = "Game_Highscore_Value";
 
-    public const string xmlFileName = "Questions_Data.xml";
+    public const string xmlFileName = "Q1.xml";
     public static string xmlFilePath
     {
 
@@ -72,8 +72,8 @@ public class Data
         }
     }
 
-    public static Data Load(/*Übergabe des Files*/)
-    {
+    //public static Data Load(/*Übergabe des Files*/)
+   // {
         /* wenn Zielfile (xml Dokument) noch nicht existiert, dann soll es erzeugt werden.
          *  if (!File.Exists(GameUtility.xmlFilePath)) { result = false; return new Data(); }
         XmlSerializer deserializer = new XmlSerializer(typeof(Data));
@@ -94,8 +94,8 @@ public class Data
          * 
          */
 
-    }
-
+   // }
+    
 
     /*public void UploadData() ---> lädt Files in eine Datenbank (und übersetzt csv in xml?)
      * 
