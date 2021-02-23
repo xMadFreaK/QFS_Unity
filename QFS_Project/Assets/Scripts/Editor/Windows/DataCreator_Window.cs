@@ -9,13 +9,14 @@ public class DataCreator_Window : EditorWindow
     private Vector2 scrollPosition = Vector2.zero;
     SerializedObject serializedObject = null;
     SerializedProperty questionsProp = null;
-    string nameContent = "";
+    string nameContent = "" { get; set; }
     private void OnEnable()
     {
         serializedObject = new SerializedObject(this);
         data.Questions = new Question[0];
         questionsProp = serializedObject.FindProperty("data").FindPropertyRelative("Questions");
     }
+
 
     [MenuItem("Game/Data Creator")]
     public static void OpenWindow()
