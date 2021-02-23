@@ -7,7 +7,7 @@ public class GameUtility {
     public const float ResolutionDelayTime = 1;
     public const string SavePrefKey = "Game_Highscore_Value";
 
-    public const string xmlFileName = "Q1.xml" { get; set; };
+    public const string xmlFileName = "Q1.xml" { get; set; }
     public static string xmlFilePath
     {
 
@@ -66,6 +66,7 @@ public class Data
         using(Stream stream = new FileStream(GameUtility.xmlFilePath, FileMode.Open))
         {
             var data = (Data)deserializer.Deserialize(stream);
+            string name = xmlFileName;
 
             result = true;
             return data;
