@@ -9,8 +9,7 @@ public class DataCreator_Window : EditorWindow
     private Vector2 scrollPosition = Vector2.zero;
     SerializedObject serializedObject = null;
     SerializedProperty questionsProp = null;
-
-
+    string nameContent = "";
     private void OnEnable()
     {
         serializedObject = new SerializedObject(this);
@@ -49,9 +48,12 @@ public class DataCreator_Window : EditorWindow
         #endregion
 
         #region Body Section
-        Rect bodyRect = new Rect(15, (headerRect.y + headerRect.height) + 20, this.position.width - 30, this.position.height - (headerRect.y + headerRect.height) - 80);
+        Rect nameRect = new Rect(15, (headerRect.y + headerRect.height) + 20, 50, 30);
+        Rect nameContentRect = new Rect(70, (headerRect.y + headerRect.height) + 27, 200, 20);
+        Rect bodyRect = new Rect(15, (nameRect.y + nameRect.height) + 20, this.position.width - 30, this.position.height - (nameRect.y + nameRect.height) - 80);
         GUI.Box(bodyRect, GUIContent.none);
-
+        nameContent = GUI.TextField(nameContentRect, nameContent);
+        GUI.Label(nameRect, "Name");
         var arraySize = data.Questions.Length;
 
         Rect viewRect = new Rect(bodyRect.x + 10, bodyRect.y + 10, bodyRect.width - 20, EditorGUI.GetPropertyHeight(questionsProp));
