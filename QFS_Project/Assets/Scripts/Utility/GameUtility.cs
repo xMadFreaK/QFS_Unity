@@ -7,14 +7,24 @@ public class GameUtility {
     public const float ResolutionDelayTime = 1;
     public const string SavePrefKey = "Game_Highscore_Value";
 
-    public const string xmlFileName = "Q1.xml" { get; set; }
+    private string _xmlFileName = "Q1.xml";
+
+    public string xmlFileName 
+    {
+        get { return _xmlFileName; }
+        set { _xmlFileName = value; }
+
+    } 
+
+
+
     public static string xmlFilePath
     {
 
         get
         {
             /* notwendiger Code zum öffnen einer .xml Datei in Android, benutzt UnityWebRequest, welches in UnityEngine.Networking; gespeichert ist. */
-            var p = Path.Combine(Application.persistentDataPath, xmlFileName);
+            var p = Path.Combine(Application.persistentDataPath, GameUtility.xmlFileName.get);
             var loadingRequest = UnityWebRequest.Get(Path.Combine(Application.streamingAssetsPath, xmlFileName));
             loadingRequest.SendWebRequest();
             while (!loadingRequest.isDone)
