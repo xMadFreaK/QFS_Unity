@@ -9,7 +9,7 @@ public class DataCreator_Window : EditorWindow
     private Vector2 scrollPosition = Vector2.zero;
     SerializedObject serializedObject = null;
     SerializedProperty questionsProp = null;
-    string nameContent = "" { get; set; }
+    string nameContent = "";
     private void OnEnable()
     {
         serializedObject = new SerializedObject(this);
@@ -75,7 +75,7 @@ public class DataCreator_Window : EditorWindow
 
         GUI.EndScrollView();
         #endregion
-
+        
         #region Navigation
 
         Rect buttonRect = new Rect(bodyRect.x + bodyRect.width - 85, bodyRect.y + bodyRect.height + 15, 85, 30);
@@ -88,6 +88,7 @@ public class DataCreator_Window : EditorWindow
         pressed = GUI.Button(buttonRect, "Fetch", EditorStyles.miniButtonLeft);
         if (pressed)
         {
+            GameUtility.xmlFileName = nameContent;
             var d = Data.Fetch(out bool result);
             if (result)
             {
