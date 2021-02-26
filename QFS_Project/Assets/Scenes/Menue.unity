@@ -309,15 +309,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 205802677}
   - component: {fileID: 205802676}
   - component: {fileID: 205802675}
+  - component: {fileID: 205802678}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -500,6 +501,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205802673}
   m_CullTransparentMesh: 0
+--- !u!114 &205802678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205802673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240e5d6898745e848a07e4ec39620a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &226616256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7976076941512526071, guid: 32c4db3526e047a469e04b901a02af8b,
@@ -1522,7 +1535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14.999756, y: -969.8113}
+  m_AnchoredPosition: {x: 14.999756, y: -970.4734}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1198236246
@@ -2430,7 +2443,7 @@ GameObject:
   - component: {fileID: 1964998878}
   - component: {fileID: 1964998877}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: QuizInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2640,7 +2653,7 @@ PrefabInstance:
     - target: {fileID: 1975896485876146554, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 0.000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 1975896487536601559, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
@@ -2840,6 +2853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QuizSelectionScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474942116316147449, guid: 1f70bf87ca95bb444afd19b376762bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f70bf87ca95bb444afd19b376762bf0, type: 3}
@@ -3123,7 +3141,7 @@ PrefabInstance:
     - target: {fileID: 711837188162319582, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1962365472541353200, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
@@ -3133,7 +3151,7 @@ PrefabInstance:
     - target: {fileID: 2644742778455566011, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3922440308958033557, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
@@ -3349,12 +3367,12 @@ PrefabInstance:
     - target: {fileID: 7868959615419145971, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8618045869380761111, guid: 6f34748084f3f494190ab4008c5c3406,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f34748084f3f494190ab4008c5c3406, type: 3}
@@ -3767,22 +3785,22 @@ PrefabInstance:
     - target: {fileID: 3941638077454368690, guid: 4cfa8459b0c73274e86784843dc11537,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4403778782611503863, guid: 4cfa8459b0c73274e86784843dc11537,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7284208289276677182, guid: 4cfa8459b0c73274e86784843dc11537,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7284208289554266114, guid: 4cfa8459b0c73274e86784843dc11537,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7284208289656863005, guid: 4cfa8459b0c73274e86784843dc11537,
         type: 3}

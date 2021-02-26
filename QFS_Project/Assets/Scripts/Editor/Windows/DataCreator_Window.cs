@@ -9,7 +9,7 @@ public class DataCreator_Window : EditorWindow
     private Vector2 scrollPosition = Vector2.zero;
     SerializedObject serializedObject = null;
     SerializedProperty questionsProp = null;
-    string nameContent = "hi.xml";
+    string nameContent = GameUtility.xmlFileName ;
     private void OnEnable()
     {
         serializedObject = new SerializedObject(this);
