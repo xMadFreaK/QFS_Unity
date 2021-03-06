@@ -52,6 +52,17 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     void OnDisable()
     {
+        events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+
+        timerDefaultColor = timerText.color;
+        LoadData();
+
+        timerStateParaHash = Animator.StringToHash("TimerState");
+
+        var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+        UnityEngine.Random.InitState(seed);
+
+        Display();
         events.UpdateQuestionAnswer -= UpdateAnswers;
     }
 
@@ -67,7 +78,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     void Start()
     {
-        events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+       /* events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
 
         timerDefaultColor = timerText.color;
         LoadData();
@@ -78,6 +89,7 @@ public class GameManager : MonoBehaviour {
         UnityEngine.Random.InitState(seed);
 
         Display();
+        */
     }
 
     #endregion
@@ -268,7 +280,7 @@ public class GameManager : MonoBehaviour {
     /// <summary>
     /// Function that is called to load data from the xml file.
     /// </summary>
-    void LoadData()
+   void LoadData()
     {
         data = Data.Fetch();
     }
@@ -310,7 +322,20 @@ public class GameManager : MonoBehaviour {
         if (events.CurrentFinalScore < 0) { events.CurrentFinalScore = 0;} */
             events.ScoreUpdated?.Invoke(); 
     }
+    /*public void Gamestart()
+    {
+        events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
 
+        timerDefaultColor = timerText.color;
+        LoadData();
+
+        timerStateParaHash = Animator.StringToHash("TimerState");
+
+        var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+        UnityEngine.Random.InitState(seed);
+
+        Display();
+    }*/
     #region Getters
 
     Question GetRandomQuestion()
