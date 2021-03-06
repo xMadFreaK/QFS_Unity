@@ -7,7 +7,7 @@ public class GameUtility {
     public const float ResolutionDelayTime = 1;
     public const string SavePrefKey = "Game_Highscore_Value";
 
-    public static string xmlFileName="Q1.xml";
+    public static string xmlFileName;
 
 
 

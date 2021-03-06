@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
     void OnEnable()
     {
         events.UpdateQuestionAnswer += UpdateAnswers;
+        
     }
     /// <summary>
     /// Function that is called when the behaviour becomes disabled
@@ -54,16 +55,7 @@ public class GameManager : MonoBehaviour {
     {
         events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
 
-        timerDefaultColor = timerText.color;
-        LoadData();
-
-        timerStateParaHash = Animator.StringToHash("TimerState");
-
-        var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
-        UnityEngine.Random.InitState(seed);
-
-        Display();
-        events.UpdateQuestionAnswer -= UpdateAnswers;
+        
     }
 
     /// <summary>
@@ -78,18 +70,19 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     void Start()
     {
-       /* events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+        events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
 
         timerDefaultColor = timerText.color;
-        LoadData();
+        //LoadData();
 
         timerStateParaHash = Animator.StringToHash("TimerState");
 
         var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
         UnityEngine.Random.InitState(seed);
 
-        Display();
-        */
+        //Display();
+        
+       
     }
 
     #endregion
@@ -322,27 +315,27 @@ public class GameManager : MonoBehaviour {
         if (events.CurrentFinalScore < 0) { events.CurrentFinalScore = 0;} */
             events.ScoreUpdated?.Invoke(); 
     }
-    /*public void Gamestart()
+    public void Gamestart()
     {
-        events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+        //events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
 
-        timerDefaultColor = timerText.color;
+        //timerDefaultColor = timerText.color;
         LoadData();
 
-        timerStateParaHash = Animator.StringToHash("TimerState");
+        //timerStateParaHash = Animator.StringToHash("TimerState");
 
-        var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
-        UnityEngine.Random.InitState(seed);
+        //var seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+        //UnityEngine.Random.InitState(seed);
 
         Display();
-    }*/
+    }
     #region Getters
 
     Question GetRandomQuestion()
     {
         var randomIndex = GetRandomQuestionIndex();
         currentQuestion = randomIndex;
-
+        
         return data.Questions[currentQuestion];
     }
     int GetRandomQuestionIndex()

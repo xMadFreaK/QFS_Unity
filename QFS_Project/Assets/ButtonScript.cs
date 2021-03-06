@@ -6,15 +6,20 @@ using TMPro;
 
 public class ButtonScript : MonoBehaviour
 {
-    public TextMeshProUGUI filetext;
-    public string holder = "Q1.xml";
+    
+    public TMP_Text filetext;
+    public Text filet;
+    
     // Start is called before the first frame update
  
     public void updateQuizSelect()
     {
+
         //holder = filetext.text;
-        GameUtility.xmlFileName = holder;
+        GameUtility.xmlFileName = filet.text;
         //GameUtility.xmlFileName = QuizInputField.Text;
+        print(filet.text);
+        
     }
     // Update is called once per frame
 
