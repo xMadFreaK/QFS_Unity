@@ -14,37 +14,59 @@ public class ButtonScript : MonoBehaviour
     public TMP_Text filetext;
     public Text filet;
 
-    public void YOLO()
+    /*public void YOLO()
     {
         StartCoroutine(DownloadFile());
-    }
+    }*/
+    /*
+    IEnumerator Start()
+    {
+        while (GameUtility.xmlFileName != "")
+        {
+            int REQ_AMOUNT = 1;
 
-    IEnumerator DownloadFile()
+            for (int i = 0; i < REQ_AMOUNT; i++)
+            {
+                yield return StartCoroutine(GetSettings());
+            }
+        }
+    }*/ /*
+    IEnumerator GetSettings()
     {
         string xmlName = GameUtility.xmlFileName;
-        var uwr = new UnityWebRequest("http://188.194.230.87:443/StreamingAssets/", UnityWebRequest.kHttpVerbGET);
+        var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/", UnityWebRequest.kHttpVerbGET);
+        string path = Path.Combine(Application.persistentDataPath, xmlName);
+        uwr.downloadHandler = new DownloadHandlerFile(path);
+        yield return uwr.SendWebRequest();
+        // Do some code, when file loaded
+
+    }*/
+
+    /*IEnumerator DownloadFile()
+    {
+        string xmlName = GameUtility.xmlFileName;
+        var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/", UnityWebRequest.kHttpVerbGET);
         string path = Path.Combine(Application.persistentDataPath, xmlName);
         uwr.downloadHandler = new DownloadHandlerFile(path);
         yield return uwr.SendWebRequest();
 
     }
-
+    */
     // Start is called before the first frame update
-
+    /*
     public void updateQuizSelect()
     {
 
         //holder = filetext.text;
-        GameUtility.xmlFileName = filet.text;
+        filet.text = GameUtility.xmlFileName;
         //GameUtility.xmlFileName = QuizInputField.Text;
-        print(filet.text);
-        YOLO();
+       Start();
         print("warte alder");
-       
+        Debug.Log("Data is fetched and ready to use");
         
     }
     // Update is called once per frame
-
+    */
 }
 /*
 public class FileDownloader : MonoBehaviour
@@ -77,3 +99,19 @@ public class FileDownloader : MonoBehaviour
     else
         Debug.Log("File successfully downloaded and saved to " + path);
 }*/
+
+public class ClickExample : MonoBehaviour
+{
+    public TMPButton SelectionButton;
+
+    void Start()
+    {
+        Button btn = SelectionButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
+    }
+}
