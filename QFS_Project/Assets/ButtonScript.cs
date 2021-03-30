@@ -14,61 +14,38 @@ public class ButtonScript : MonoBehaviour
     public TMP_Text filetext;
     public Text filet;
 
-    /*public void YOLO()
+    public void YOLO()
     {
         StartCoroutine(DownloadFile());
-    }*/
-    /*
-    IEnumerator Start()
-    {
-        while (GameUtility.xmlFileName != "")
-        {
-            int REQ_AMOUNT = 1;
-
-            for (int i = 0; i < REQ_AMOUNT; i++)
-            {
-                yield return StartCoroutine(GetSettings());
-            }
-        }
-    }*/ /*
-    IEnumerator GetSettings()
-    {
-        string xmlName = GameUtility.xmlFileName;
-        var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/", UnityWebRequest.kHttpVerbGET);
-        string path = Path.Combine(Application.persistentDataPath, xmlName);
-        uwr.downloadHandler = new DownloadHandlerFile(path);
-        yield return uwr.SendWebRequest();
-        // Do some code, when file loaded
-
-    }*/
-
-    /*IEnumerator DownloadFile()
-    {
-        string xmlName = GameUtility.xmlFileName;
-        var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/", UnityWebRequest.kHttpVerbGET);
-        string path = Path.Combine(Application.persistentDataPath, xmlName);
-        uwr.downloadHandler = new DownloadHandlerFile(path);
-        yield return uwr.SendWebRequest();
-
     }
-    */
+   
+
+    IEnumerator DownloadFile()
+    {
+        var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/" + filet.text + ".xml" , UnityWebRequest.kHttpVerbGET);
+        string path = Path.Combine(Application.persistentDataPath +  "/StreamingAssets/" + filet.text + ".xml");
+        uwr.downloadHandler = new DownloadHandlerFile(path);
+        yield return uwr.SendWebRequest();
+     
+    }
+    
     // Start is called before the first frame update
-    /*
+    
     public void updateQuizSelect()
     {
 
         //holder = filetext.text;
-        filet.text = GameUtility.xmlFileName;
+        GameUtility.xmlFileName = filet.text + ".xml" ;
         //GameUtility.xmlFileName = QuizInputField.Text;
-       Start();
+       YOLO();
         print("warte alder");
         Debug.Log("Data is fetched and ready to use");
         
     }
     // Update is called once per frame
-    */
+    
 }
-/*
+
 public class FileDownloader : MonoBehaviour
 {
 
@@ -86,20 +63,10 @@ public class FileDownloader : MonoBehaviour
         yield return uwr.SendWebRequest();
 
     }
-}*/
+}
 
-/*IEnumerator DownloadFile()
-{
-    var uwr = new UnityWebRequest("https://unity3d.com/", UnityWebRequest.kHttpVerbGET);
-    string path = Path.Combine(Application.persistentDataPath, "unity3d.html");
-    uwr.downloadHandler = new DownloadHandlerFile(path);
-    yield return uwr.SendWebRequest();
-    if (uwr.result != UnityWebRequest.Result.Success)
-        Debug.LogError(uwr.error);
-    else
-        Debug.Log("File successfully downloaded and saved to " + path);
-}*/
 
+/*
 public class ClickExample : MonoBehaviour
 {
     public TMPButton SelectionButton;
@@ -114,4 +81,4 @@ public class ClickExample : MonoBehaviour
     {
         Debug.Log("You have clicked the button!");
     }
-}
+}*/
