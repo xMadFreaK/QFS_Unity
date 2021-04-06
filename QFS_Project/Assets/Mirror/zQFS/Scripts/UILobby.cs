@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// This class mainly takes care of user inputs and outputs during Server-Connection process
 public class UILobby : MonoBehaviour {
 
-    public static UILobby instance;
+    public static UILobby instance;             // Singleton - instance of a client
 
     [Header("Host Join")]
 
@@ -27,16 +28,19 @@ public class UILobby : MonoBehaviour {
         instance = this;      
     }
 
-    //when pressing HOST-Button
+    // When pressing HOST-Button, buttons will be deactivated to prevent spamming.
+    // The local player is now hosting the game.
     public void Host() {
         matchIDInput.interactable = false;      //to not be able to spam the buttons
         joinButton.interactable = false;
         hostButton.interactable = false;
 
-        Player.localPlayer.HostGame();          //we as the localPlayer will host the game
+        Player.localPlayer.HostGame();          // localPlayer will host the game
     }
 
-    public void HostSuccess(bool _success, string _matchID) {    //when hosting was not successfull, we can press the buttons again
+    // If Hosting was not successful, the Host/Join/MatchID-Input-Buttons become interactable again
+    // If Hosting was successful, the Lobby is enabled, the PlayerUIPrefab is spawned and the BeginGameButton is set active
+    public void HostSuccess(bool _success, string _matchID) {
         if (_success) {
             lobbyCanvas.enabled = true;
 
@@ -51,7 +55,8 @@ public class UILobby : MonoBehaviour {
 
     }
 
-    //when pressing Beitreten-Button
+    // When pressing Beitreten-Button, buttons will be deactivated to prevent spamming.
+    // The local player is now joining the game
     public void Join() {
         matchIDInput.interactable = false;      //to not be able to spam the buttons
         joinButton.interactable = false;
@@ -60,6 +65,8 @@ public class UILobby : MonoBehaviour {
         Player.localPlayer.JoinGame(matchIDInput.text.ToUpper());
     }
 
+    // If joining was successful, the Lobby is enabled and the player spawns, the matchID is shown
+    // If joining was unsuccessful, the Host/Join/machtIDInput-Buttons are enabled again
     public void JoinSuccess(bool _success, string _matchID) {
         if (_success) {
             lobbyCanvas.enabled = true;
@@ -73,11 +80,13 @@ public class UILobby : MonoBehaviour {
         }
     }
 
+    // Spawns player into lobby
     public void SpawnPlayerUIPrefab(Player _player) {
         GameObject newUIPlayer = Instantiate(UIPlayerPrefab, UIPlayerParent);
         newUIPlayer.GetComponent<UIPlayer>().SetPlayer(_player);
     }
 
+    // starts game for local player
     public void BeginGame() {
         Player.localPlayer.BeginGame();
     }
