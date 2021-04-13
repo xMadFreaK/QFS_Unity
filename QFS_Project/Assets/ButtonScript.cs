@@ -14,19 +14,49 @@ public class ButtonScript : MonoBehaviour
     public TMP_Text filetext;
     public Text filet;
 
-    public void YOLO()
+    public void yolo()
     {
         StartCoroutine(DownloadFile());
+
+        StopCoroutine(DownloadFile());
     }
-   
+
 
     IEnumerator DownloadFile()
     {
-        var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/" + filet.text + ".xml" , UnityWebRequest.kHttpVerbGET);
-        string path = Path.Combine(Application.persistentDataPath +  "/StreamingAssets/" + filet.text + ".xml");
-        uwr.downloadHandler = new DownloadHandlerFile(path);
+        /* var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/" + filet.text + ".xml" , UnityWebRequest.kHttpVerbGET);
+         string path = Path.Combine(Application.persistentDataPath +  "/StreamingAssets/" + filet.text + ".xml");
+         uwr.downloadHandler = new DownloadHandlerFile(path);
+         yield return uwr.SendWebRequest(); */
+
+        string url = "http://188.194.230.87:443/Quizzes/" + filet.text + ".xml";
+
+        string vidSavePath = Application.streamingAssetsPath;
+        vidSavePath = Path.Combine(vidSavePath, filet.text + ".xml");
+
+        //Create Directory if it does not exist
+        if (!Directory.Exists(Path.GetDirectoryName(vidSavePath)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(vidSavePath));
+        }
+
+        var uwr = new UnityWebRequest(url);
+        uwr.method = UnityWebRequest.kHttpVerbGET;
+        var dh = new DownloadHandlerFile(vidSavePath);
+        dh.removeFileOnAbort = true;
+        uwr.downloadHandler = dh;
         yield return uwr.SendWebRequest();
-     
+
+        if (uwr.isNetworkError || uwr.isHttpError)
+        {
+            Debug.Log(uwr.error);
+            print("hallo");
+        }
+        else
+        {
+            Debug.Log("Download saved to: " + vidSavePath.Replace("/", "\\") + "\r\n" + uwr.error);
+            print("läuft");
+        }
     }
     
     // Start is called before the first frame update
@@ -37,8 +67,9 @@ public class ButtonScript : MonoBehaviour
         //holder = filetext.text;
         GameUtility.xmlFileName = filet.text + ".xml" ;
         //GameUtility.xmlFileName = QuizInputField.Text;
-       YOLO();
+       
         print("warte alder");
+        yolo();
         Debug.Log("Data is fetched and ready to use");
         
     }
@@ -46,7 +77,7 @@ public class ButtonScript : MonoBehaviour
     
 }
 
-public class FileDownloader : MonoBehaviour
+/* public class FileDownloader : MonoBehaviour
 {
 
     public void YOLO()
@@ -64,7 +95,7 @@ public class FileDownloader : MonoBehaviour
 
     }
 }
-
+*/
 
 /*
 public class ClickExample : MonoBehaviour
