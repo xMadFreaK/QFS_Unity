@@ -208,6 +208,16 @@ PrefabInstance:
       propertyPath: m_text
       value: <var Spieler > hat gewonnen
       objectReference: {fileID: 0}
+    - target: {fileID: 7986218713283106840, guid: 3fb993ca31b9343498c083f8bf54f76c,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986218713283106840, guid: 3fb993ca31b9343498c083f8bf54f76c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 8165132948852658739, guid: 3fb993ca31b9343498c083f8bf54f76c,
         type: 3}
       propertyPath: m_Name
@@ -331,22 +341,22 @@ PrefabInstance:
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 325
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -850
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -900
+      value: -600
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
@@ -382,6 +392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "Zur\xFCck"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046343485580583000, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 59.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd0381bd94b3ca84a8e7d760ff75b9b2, type: 3}
@@ -511,12 +526,12 @@ PrefabInstance:
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -640
+      value: -500
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
