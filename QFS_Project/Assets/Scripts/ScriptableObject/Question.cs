@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+using System.Linq;
 
 public enum AnswerType { Multi, Single }
 
@@ -38,5 +42,19 @@ public class Question {
             }
         }
         return CorrectAnswers;
+    }
+}
+
+public class Quizz
+{
+    public static Question[][] getQuiz(xmlFileName)
+    {
+        List<Question> liste = new List<Question>();
+        string[] zeilen = File.ReadAllLines(xmlFileName);
+
+        foreach(string zeile in zeilen)
+        {
+            string[] data = zeile.split(";");
+        }
     }
 }
