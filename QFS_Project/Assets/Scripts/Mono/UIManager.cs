@@ -206,17 +206,17 @@ public class UIManager : MonoBehaviour {
         System.Random rani = new System.Random();
         int f = -1;
         float offset = 0 - parameters.Margins;
-        for (int i = 0; i < question.Answers.Length; i++)
+        for (int i = 0; i < question.Answer.Length; i++)
         { 
             while (usedAnswer.Contains(f) || f == -1)
             {
-            f = rani.Next(question.Answers.Length);
+            f = rani.Next(question.Answer.Length);
             }
         usedAnswer.Add(f);
 
 
         AnswerData newAnswer = (AnswerData)Instantiate(answerPrefab, uIElements.AnswersContentArea);
-        newAnswer.UpdateData(question.Answers[f].Info, f);
+        newAnswer.UpdateData(question.Answer[f], f);
 
         newAnswer.Rect.anchoredPosition = new Vector2(0, offset);
 

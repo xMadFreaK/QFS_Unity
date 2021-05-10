@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour {
     void Awake()
     {
         events.CurrentFinalScore = 0;
+        
     }
     /// <summary>
     /// Function that is called when the script instance is being loaded.
@@ -81,8 +82,8 @@ public class GameManager : MonoBehaviour {
         UnityEngine.Random.InitState(seed);
 
         //Display();
-        
-       
+        Quizz.Ausprobieren();
+
     }
 
     #endregion
@@ -104,18 +105,7 @@ public class GameManager : MonoBehaviour {
             PickedAnswers.Clear();
             PickedAnswers.Add(newAnswer);
         }
-        else
-        {
-            bool alreadyPicked = PickedAnswers.Exists(x => x == newAnswer);
-            if (alreadyPicked)
-            {
-                PickedAnswers.Remove(newAnswer);
-            }
-            else
-            {
-                PickedAnswers.Add(newAnswer);
-            }
-        }
+       
     }
 
     /// <summary>
