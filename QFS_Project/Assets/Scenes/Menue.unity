@@ -1279,7 +1279,7 @@ MonoBehaviour:
   offlineScene: Assets/Scenes/Menue.unity
   onlineScene: Assets/Scenes/Lobby.unity
   transport: {fileID: 1897393349}
-  networkAddress: localhost
+  networkAddress: 52.28.114.172
   maxConnections: 4
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
@@ -1424,7 +1424,7 @@ PrefabInstance:
     - target: {fileID: 1975896485876146554, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0001373291
+      value: -0.000022888184
       objectReference: {fileID: 0}
     - target: {fileID: 1975896485876146557, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
