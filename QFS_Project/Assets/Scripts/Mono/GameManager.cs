@@ -154,7 +154,6 @@ public class GameManager : MonoBehaviour {
         if (IsFinished)
         {
             SetHighscore();
-            SceneManager.LoadScene("Lobby");            // Scene in which you'll land after a round is finished!
         }
 
         var type 
