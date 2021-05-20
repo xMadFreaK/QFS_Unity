@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     #region Variables
 
     private Data data = new Data();
+    private Quizz quizz;
 
     [SerializeField]    GameEvents          events                  = null;
 
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour {
         UnityEngine.Random.InitState(seed);
 
         //Display();
-        Quizz.Ausprobieren();
+        
 
     }
 
@@ -265,7 +266,8 @@ public class GameManager : MonoBehaviour {
     /// </summary>
    void LoadData()
     {
-        data = Data.Fetch();
+        // data = Data.Fetch();
+       var quizz = Quizz.getQuiz(@"C:\Users\Linda Huber\Downloads\Q1neu.csv");
     }
 
     /// <summary>
@@ -326,7 +328,7 @@ public class GameManager : MonoBehaviour {
         var randomIndex = GetRandomQuestionIndex();
         currentQuestion = randomIndex;
         
-        return data.Questions[currentQuestion];
+        return quizz[currentQuestion];
     }
     int GetRandomQuestionIndex()
     {

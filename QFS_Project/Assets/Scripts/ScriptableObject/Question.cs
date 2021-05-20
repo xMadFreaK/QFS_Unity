@@ -5,6 +5,12 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using UnityEngine.UI;
+using System.Collections;
+using System.Xml.Serialization;
+using UnityEngine.Networking;
+using TMPro;
+
 
 public enum AnswerType { Multi, Single }
 
@@ -104,18 +110,21 @@ public class Quizz
 
     public static void Ausprobieren()
     {
+        
         var quizz = Quizz.getQuiz(@"C:\Users\Linda Huber\Downloads\Q1neu.csv");
 
         int index = 0;
         int anzahl = quizz.Length;
+        Debug.Log("t1" + anzahl);
 
         while (index < anzahl)
         {
-            print(quizz[index].Info);
-            print(quizz[index].Answer[0]);
-            print(quizz[index].Timer);
-            print(quizz[index].AddScore);
-           
+            Debug.Log(quizz[index].Info);
+            Debug.Log(quizz[index].Answer[0]);
+            Debug.Log(quizz[index].Timer);
+            Debug.Log(quizz[index].AddScore);
+            Debug.Log("f");
+            Debug.Log("t2");
             index++;
         }
     }

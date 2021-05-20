@@ -75,6 +75,10 @@ public class ButtonScript : MonoBehaviour
     }
     // Update is called once per frame
     
+    public void Quiz()
+    {
+        Quizz.Ausprobieren();
+    }
 }
 
 /* public class FileDownloader : MonoBehaviour

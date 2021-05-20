@@ -546,6 +546,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 827283808383468906}
@@ -563,6 +568,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 406099487}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Quiz
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
@@ -770,6 +805,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
+      - m_Target: {fileID: 205802678}
+        m_MethodName: Quiz
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &205802676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +915,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &406099486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 474837389815864864, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 159973816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &406099487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406099486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240e5d6898745e848a07e4ec39620a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filetext: {fileID: 0}
+  filet: {fileID: 0}
 --- !u!114 &415939616 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 415939616, guid: e1c86fda9bbae2a4daae162d03a412c0,
@@ -1809,7 +1875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14.999756, y: -506.094}
+  m_AnchoredPosition: {x: 14.999756, y: -969.2401}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1198236246
@@ -2039,7 +2105,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1626556259}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.450602
+  m_Size: 0.4742066
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
