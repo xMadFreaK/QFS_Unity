@@ -70,6 +70,51 @@ public class Data
     }
     public static Data Fetch(out bool result)
     {
+        var quizz = Quizz.getQuiz(@"C:\Users\Linda Huber\Downloads\Q1neu.csv");
+        Data data = new Data();
+
+        int index = 0;
+        int anzahl = quizz.Length;
+        while (index < anzahl)
+        {
+            data.Questions[index].Info = quizz[index].Info;
+            data.Questions[index].Answer[0] = quizz[index].Answer[0];
+            data.Questions[index].Answer[1] = quizz[index].Answer[1];
+            data.Questions[index].Answer[2] = quizz[index].Answer[2];
+            data.Questions[index].Answer[3] = quizz[index].Answer[3];
+            data.Questions[index].Timer = quizz[index].Timer;
+            data.Questions[index].AddScore = quizz[index].AddScore;
+
+            index++;
+        }
+        result = true;
+        return data;
+    }
+
+
+
+/*[System.Serializable()]
+public class Data
+{
+
+    public Question[] Questions = new Question[0];
+
+    public Data () { }
+
+    public static void Write(Data data)
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(Data));
+        using (Stream stream = new FileStream(GameUtility.xmlFilePath, FileMode.Create))
+        {
+            serializer.Serialize(stream, data);
+        }
+    }
+    public static Data Fetch()
+    {
+        return Fetch(out bool result);
+    }
+    public static Data Fetch(out bool result)
+    {
 
         if (!File.Exists(GameUtility.xmlFilePath)) { result = false; return new Data(); }
         XmlSerializer deserializer = new XmlSerializer(typeof(Data));
@@ -81,7 +126,7 @@ public class Data
             result = true;
             return data;
         }
-    }
+    }*/
 
     //public static Data Load(/*Übergabe des Files*/)
     // {

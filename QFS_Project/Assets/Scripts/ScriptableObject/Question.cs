@@ -116,7 +116,7 @@ public class Quizz
         int index = 0;
         int anzahl = quizz.Length;
         Debug.Log("t1" + anzahl);
-
+        
         while (index < anzahl)
         {
             Debug.Log(quizz[index].Info);
