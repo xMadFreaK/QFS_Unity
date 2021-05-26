@@ -111,7 +111,7 @@ public class Quizz
     public static void Ausprobieren()
     {
         
-        var quizz = Quizz.getQuiz(@"C:\Users\Linda Huber\Downloads\Q1neu.csv");
+        var quizz = Quizz.getQuiz(ButtonScript.vidSavePath);
 
         int index = 0;
         int anzahl = quizz.Length;

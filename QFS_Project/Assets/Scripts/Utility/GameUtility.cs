@@ -71,7 +71,7 @@ public class Data
     }
     public static Data Fetch(out bool result)
     {
-        var quizz = Quizz.getQuiz(@"C:\Users\Linda Huber\Downloads\Q1neu.csv");
+        var quizz = Quizz.getQuiz(ButtonScript.vidSavePath);
         Data data = new Data();
         Array.Resize(ref data.Questions, quizz.Length);
         data.Questions = quizz;

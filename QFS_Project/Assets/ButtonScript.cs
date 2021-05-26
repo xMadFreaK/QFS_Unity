@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 
 public class ButtonScript : MonoBehaviour
 {
-    
+    public static string vidSavePath;
     public TMP_Text filetext;
     public Text filet;
 
@@ -21,13 +21,49 @@ public class ButtonScript : MonoBehaviour
         StopCoroutine(DownloadFile());
     }
 
-
     IEnumerator DownloadFile()
     {
         /* var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/" + filet.text + ".xml" , UnityWebRequest.kHttpVerbGET);
          string path = Path.Combine(Application.persistentDataPath +  "/StreamingAssets/" + filet.text + ".xml");
          uwr.downloadHandler = new DownloadHandlerFile(path);
          yield return uwr.SendWebRequest(); */
+
+        string url = "http://188.194.230.87:443/Quizzes/" + filet.text + ".csv";
+
+        vidSavePath = Application.streamingAssetsPath;
+        vidSavePath = Path.Combine(vidSavePath, filet.text + ".csv");
+
+        //Create Directory if it does not exist
+        if (!Directory.Exists(Path.GetDirectoryName(vidSavePath)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(vidSavePath));
+        }
+
+        var uwr = new UnityWebRequest(url);
+        uwr.method = UnityWebRequest.kHttpVerbGET;
+        var dh = new DownloadHandlerFile(vidSavePath);
+        dh.removeFileOnAbort = true;
+        uwr.downloadHandler = dh;
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError || uwr.isHttpError)
+        {
+            Debug.Log(uwr.error);
+            print("hallo");
+        }
+        else
+        {
+            Debug.Log("Download saved to: " + vidSavePath.Replace("/", "\\") + "\r\n" + uwr.error);
+            print("läuft");
+        }
+    }
+
+  /*  IEnumerator DownloadFile()
+    {
+        /* var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/" + filet.text + ".xml" , UnityWebRequest.kHttpVerbGET);
+         string path = Path.Combine(Application.persistentDataPath +  "/StreamingAssets/" + filet.text + ".xml");
+         uwr.downloadHandler = new DownloadHandlerFile(path);
+         yield return uwr.SendWebRequest(); 
 
         string url = "http://188.194.230.87:443/Quizzes/" + filet.text + ".xml";
 
@@ -57,7 +93,7 @@ public class ButtonScript : MonoBehaviour
             Debug.Log("Download saved to: " + vidSavePath.Replace("/", "\\") + "\r\n" + uwr.error);
             print("läuft");
         }
-    }
+    }*/
     
     // Start is called before the first frame update
     
