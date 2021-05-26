@@ -121,6 +121,9 @@ public class Quizz
         {
             Debug.Log(quizz[index].Info);
             Debug.Log(quizz[index].Answer[0]);
+            Debug.Log(quizz[index].Answer[1]);
+            Debug.Log(quizz[index].Answer[2]);
+            Debug.Log(quizz[index].Answer[3]);
             Debug.Log(quizz[index].Timer);
             Debug.Log(quizz[index].AddScore);
             Debug.Log("f");

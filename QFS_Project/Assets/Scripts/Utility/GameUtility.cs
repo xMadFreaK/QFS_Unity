@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml.Serialization;
 using UnityEngine.Networking;
 using System.Collections;
+using System;
 
 public class GameUtility {
 
@@ -51,7 +52,7 @@ public class GameUtility {
 [System.Serializable()]
 public class Data
 {
-
+    
     public Question[] Questions = new Question[0];
 
     public Data () { }
@@ -72,8 +73,10 @@ public class Data
     {
         var quizz = Quizz.getQuiz(@"C:\Users\Linda Huber\Downloads\Q1neu.csv");
         Data data = new Data();
-
-        int index = 0;
+        Array.Resize(ref data.Questions, quizz.Length);
+        data.Questions = quizz;
+        
+        /*int index = 0;
         int anzahl = quizz.Length;
         while (index < anzahl)
         {
@@ -86,7 +89,7 @@ public class Data
             data.Questions[index].AddScore = quizz[index].AddScore;
 
             index++;
-        }
+        }*/
         result = true;
         return data;
     }
