@@ -31,7 +31,7 @@ public class UILobby : MonoBehaviour {
     // When pressing HOST-Button, buttons will be deactivated to prevent spamming.
     // The local player is now hosting the game.
     public void Host() {
-        matchIDInput.interactable = false;      //to not be able to spam the buttons
+        matchIDInput.interactable = false;      //to not be able to spam the buttons. they are reactivated upon game start (UILobby.BeginGame)
         joinButton.interactable = false;
         hostButton.interactable = false;
 
@@ -42,12 +42,14 @@ public class UILobby : MonoBehaviour {
     // If Hosting was successful, the Lobby is enabled, the PlayerUIPrefab is spawned and the BeginGameButton is set active
     public void HostSuccess(bool _success, string _matchID) {
         if (_success) {
+            Debug.Log("UILobby.HostSuccess works");
             lobbyCanvas.enabled = true;
 
             SpawnPlayerUIPrefab(Player.localPlayer);
             matchIDText.text = _matchID;
             beginGameButton.SetActive(true);
         } else {
+            Debug.Log("UILobby.HostSuccess failed");
             matchIDInput.interactable = true;
             joinButton.interactable = true;
             hostButton.interactable = true;
@@ -58,7 +60,7 @@ public class UILobby : MonoBehaviour {
     // When pressing Beitreten-Button, buttons will be deactivated to prevent spamming.
     // The local player is now joining the game
     public void Join() {
-        matchIDInput.interactable = false;      //to not be able to spam the buttons
+        matchIDInput.interactable = false;      //to not be able to spam the buttons. they are reactivated upon game start (UILobby.BeginGame)
         joinButton.interactable = false;
         hostButton.interactable = false;
 
@@ -89,6 +91,9 @@ public class UILobby : MonoBehaviour {
     // starts game for local player
     public void BeginGame() {
         Player.localPlayer.BeginGame();
+        matchIDInput.interactable = true;      //to reactivate the buttons in case you'd like to play again
+        joinButton.interactable = true;
+        hostButton.interactable = true;
     }
 
 }

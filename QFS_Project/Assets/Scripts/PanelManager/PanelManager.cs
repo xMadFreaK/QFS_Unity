@@ -38,6 +38,11 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
     public void SwitchCanvas(PanelType _type) {
         if(lastActivePanel != null) {
             lastActivePanel.gameObject.SetActive(false);                    //deactivate the last active panel
+            Debug.Log("lastActivePanel succesfully deacitvated");
+        }
+        else
+        {
+            Debug.Log("No lastActivePanel");
         }
 
         PanelController desiredPanel = panelControllerList.Find(x => x.panelType == _type);

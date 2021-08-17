@@ -42,11 +42,11 @@ public class Player : NetworkBehaviour { //so that this script is networkable
         matchID = _matchID;
         if (MatchMaker.instance.HostMatch(_matchID, gameObject))        // add "out playerIndex" to parameters to implement playerIndex
         {                                                               // gameObject from this player (= the GameObject this component is attached to)      
-            Debug.Log("Game hosted successfully");
+            Debug.Log("Game hosted successfully (Player.CmdHostGame)");
             networkMatchChecker.matchId = _matchID.ToGuid();            // sets matchID of NetworkMatchChecker to our generated _matchID, which needs to be turned into a Guid first, using our ToGuid()-Method
-            TargetHostGame(true, _matchID);
+            TargetHostGame(true, _matchID); 
         } else {
-            Debug.Log("Game hosted failed");
+            Debug.Log("Game hosted failed (Player.CmdHostGame)");
             TargetHostGame(false, _matchID);
         }   
     }
@@ -54,9 +54,12 @@ public class Player : NetworkBehaviour { //so that this script is networkable
     [TargetRpc] // target client
     // Transmits to client (UILobby.cs) whether hosting the game was successful or not
     void TargetHostGame(bool _success, string _matchID) {
+        Debug.Log("Start Player.TargetHostGame");
         matchID = _matchID;
+        Debug.Log("Set MatchID successful Player.TargetHostGame");
         Debug.Log($"MatchID: {matchID} == {_matchID}");
         UILobby.instance.HostSuccess(_success, _matchID);
+        Debug.Log("Called HostSuccess in Player.TargetHostGame");
     }
 
 
