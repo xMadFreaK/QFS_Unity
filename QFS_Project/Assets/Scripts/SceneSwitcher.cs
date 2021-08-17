@@ -34,7 +34,7 @@ public class SceneSwitcher : MonoBehaviour
         SceneManager.UnloadSceneAsync("Lobby");
         
         panelManager = PanelManager.GetInstance();
-        lastActivePanel.gameObject.SetActive(false);
+        //lastActivePanel.gameObject.SetActive(false);
         panelManager.SwitchCanvas(PanelType.MainScreen);
     }
 }

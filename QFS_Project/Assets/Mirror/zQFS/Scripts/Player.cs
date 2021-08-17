@@ -12,6 +12,8 @@ public class Player : NetworkBehaviour { //so that this script is networkable
     [SyncVar] public string matchID;        // Random matchID to identificate a match. It is saved in a SyncList
     // [SyncVar] public int playerIndex        // Index of player in relation to all the other players in the game - not implemented yet
 
+    public string onlineName;
+
     NetworkMatchChecker networkMatchChecker; // NetworkMatchChecker is the Mirror MatchMaking component. It is used in this script to create the Guid from our matchID
 
     // Instantiates this player as local player (if that's the case)
@@ -21,7 +23,9 @@ public class Player : NetworkBehaviour { //so that this script is networkable
 
         if (isLocalPlayer) {
             localPlayer = this;             //so the system knows the player is the local Player
+            onlineName = PlayerInformation.playerName;
         } else {
+            onlineName = "Gegner";
             UILobby.instance.SpawnPlayerUIPrefab(this); // spawns this player - which is not the local player - to the lobby
         }    
     }
