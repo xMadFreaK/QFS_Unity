@@ -28,7 +28,7 @@ public class ButtonScript : MonoBehaviour
          uwr.downloadHandler = new DownloadHandlerFile(path);
          yield return uwr.SendWebRequest(); */
 
-        string url = "http://188.194.230.87:443/Quizzes/" + filet.text + ".csv";
+        string url = "http://192.168.1.110:443/Quizzes/" + filet.text + ".csv";
 
         vidSavePath = Application.streamingAssetsPath;
         vidSavePath = Path.Combine(vidSavePath, filet.text + ".csv");
