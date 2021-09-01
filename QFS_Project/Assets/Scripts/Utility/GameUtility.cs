@@ -2,12 +2,16 @@
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine.Networking;
+using System.Collections;
+using System;
+
 public class GameUtility {
 
     public const float ResolutionDelayTime = 1;
     public const string SavePrefKey = "Game_Highscore_Value";
 
-    public const string xmlFileName = "Questions_Data.xml";
+    public static string xmlFileName; // = "Questions_Data.xml";
+
     public static string xmlFilePath
     {
 
@@ -60,15 +64,41 @@ public class Data
     }
     public static Data Fetch(out bool result)
     {
+        var quizz = Quizz.getQuiz(ButtonScript.vidSavePath);
+        Data data = new Data();
+        Array.Resize(ref data.Questions, quizz.Length);
+        data.Questions = quizz;
 
-        if (!File.Exists(GameUtility.xmlFilePath)) { result = false; return new Data(); }
-        XmlSerializer deserializer = new XmlSerializer(typeof(Data));
-        using(Stream stream = new FileStream(GameUtility.xmlFilePath, FileMode.Open))
+        /*int index = 0;
+        int anzahl = quizz.Length;
+        while (index < anzahl)
         {
-            var data = (Data)deserializer.Deserialize(stream);
+            data.Questions[index].Info = quizz[index].Info;
+            data.Questions[index].Answer[0] = quizz[index].Answer[0];
+            data.Questions[index].Answer[1] = quizz[index].Answer[1];
+            data.Questions[index].Answer[2] = quizz[index].Answer[2];
+            data.Questions[index].Answer[3] = quizz[index].Answer[3];
+            data.Questions[index].Timer = quizz[index].Timer;
+            data.Questions[index].AddScore = quizz[index].AddScore;
 
-            result = true;
-            return data;
-        }
+            index++;
+        }*/
+        result = true;
+        return data;
+
+
+
+
+        /* if (!File.Exists(GameUtility.xmlFilePath)) { result = false; return new Data(); }
+         XmlSerializer deserializer = new XmlSerializer(typeof(Data));
+         using(Stream stream = new FileStream(GameUtility.xmlFilePath, FileMode.Open))
+         {
+             var data = (Data)deserializer.Deserialize(stream);
+
+             result = true;
+             return data;
+         }*/
+
+
     }
 }
