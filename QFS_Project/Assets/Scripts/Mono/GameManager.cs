@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour {
     {
         get
         {
-            return (FinishedQuestions.Count < data.Questions.Length) ? false : true;
+            return (FinishedQuestions.Count < 5) ? false : true;
+            //return(FinishedQuestions.Count < data.Questions.Length) ? false : true;
         }
     }
 
