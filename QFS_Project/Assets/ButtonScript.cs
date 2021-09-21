@@ -16,7 +16,7 @@ public class ButtonScript : MonoBehaviour
     public Text filet;
     public bool sheeeesh = false;
 
-    public void yolo()
+    /*public void yolo()
     {
         StartCoroutine(DownloadFile());
 
@@ -28,7 +28,7 @@ public class ButtonScript : MonoBehaviour
             print(vidSavePath);
             SelectionButton.SetActive(true);
         }
-    }
+    }+*/
 
     IEnumerator DownloadFile()
     {
@@ -70,7 +70,15 @@ public class ButtonScript : MonoBehaviour
             print("läuft");
             sheeeesh = true;
         }
+        int c = counting();
+        if (c != 0)
+
+        {
+            print(vidSavePath);
+            SelectionButton.SetActive(true);
+        }
     }
+
         public int counting()
     { 
         int counter = 0;
@@ -100,8 +108,9 @@ return counter;
         //GameUtility.xmlFileName = QuizInputField.Text;
 
         print("warte alder");
-        
-        yolo();
+
+        //yolo();
+        StartCoroutine(DownloadFile());
         Debug.Log("Data is fetched and ready to use");
         
 
@@ -112,6 +121,8 @@ return counter;
     {
         Quizz.Ausprobieren();
     }
+
+     
 }
 
 /* public class FileDownloader : MonoBehaviour
