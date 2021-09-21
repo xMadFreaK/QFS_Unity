@@ -1250,6 +1250,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467500477}
   m_CullTransparentMesh: 0
+--- !u!1 &469977298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 474837389815864864, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1419419343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &469977303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469977298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c5bbd0716749c4d8d56024e5de737e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredPanelType: 3
 --- !u!1 &498480392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,7 +2209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -969.5564}
+  m_AnchoredPosition: {x: 0, y: -968.9829}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1026895491
@@ -2275,7 +2294,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 202643611}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.4741998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3019,6 +3038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1679895119419124612}
@@ -3712,7 +3736,7 @@ PrefabInstance:
     - target: {fileID: 474837389815864864, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_Name
-      value: NewGameButton (1)
+      value: SettingsButton
       objectReference: {fileID: 0}
     - target: {fileID: 474837389815864864, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
@@ -3722,7 +3746,7 @@ PrefabInstance:
     - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
@@ -3748,7 +3772,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1679895119419124612}
+      objectReference: {fileID: 1251415149}
     - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3782,7 +3806,7 @@ PrefabInstance:
     - target: {fileID: 1463031275879009806, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526704288322558821, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
@@ -3944,7 +3968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c5bbd0716749c4d8d56024e5de737e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredPanelType: 9
+  desiredPanelType: 7
 --- !u!1 &1736642860
 GameObject:
   m_ObjectHideFlags: 0
@@ -5253,7 +5277,7 @@ PrefabInstance:
     - target: {fileID: 1975896485876146554, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1975896485876146557, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
