@@ -21,11 +21,11 @@ public class ButtonScript : MonoBehaviour
         StartCoroutine(DownloadFile());
 
         StopCoroutine(DownloadFile());
-        
-        if (Directory.Exists(Path.GetDirectoryName(vidSavePath)))
+        int c = counting();
+        if ( c != 0)
 
         {
-            
+            print(vidSavePath);
             SelectionButton.SetActive(true);
         }
     }
@@ -47,9 +47,9 @@ public class ButtonScript : MonoBehaviour
 
         {
             Directory.CreateDirectory(Path.GetDirectoryName(vidSavePath));
-           
+
         }
-        
+
 
         var uwr = new UnityWebRequest(url);
         uwr.method = UnityWebRequest.kHttpVerbGET;
@@ -57,21 +57,38 @@ public class ButtonScript : MonoBehaviour
         dh.removeFileOnAbort = true;
         uwr.downloadHandler = dh;
         yield return uwr.SendWebRequest();
-        
+
         if (uwr.isNetworkError || uwr.isHttpError)
         {
             Debug.Log(uwr.error);
             print("hallo");
-            
+
         }
         else
         {
             Debug.Log("Download saved to: " + vidSavePath.Replace("/", "\\") + "\r\n" + uwr.error);
             print("läuft");
-           
+            sheeeesh = true;
         }
-        
     }
+        public int counting()
+    { 
+        int counter = 0;
+string line;
+
+    // Read the file and display it line by line.  
+    System.IO.StreamReader file =
+        new System.IO.StreamReader(vidSavePath);  
+while((line = file.ReadLine()) != null)  {
+
+            System.Console.WriteLine(line);
+    counter++;  
+}
+file.Close();
+return counter;
+    }
+
+    
 
  
 
@@ -83,6 +100,7 @@ public class ButtonScript : MonoBehaviour
         //GameUtility.xmlFileName = QuizInputField.Text;
 
         print("warte alder");
+        
         yolo();
         Debug.Log("Data is fetched and ready to use");
         
