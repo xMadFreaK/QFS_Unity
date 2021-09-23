@@ -8,6 +8,9 @@ using UnityEngine.UI;
 using TMPro;
 
 public class PlayerInformation : MonoBehaviour {
+
+    public TextMeshProUGUI Fehlermeldung;
+
     //AccountCreation
     public TMP_InputField email;                
     public TMP_InputField username;
@@ -61,21 +64,31 @@ public class PlayerInformation : MonoBehaviour {
     }
 
     // Register new User (Authentification)
-    private void SignUpUser(string email, string username, string password) {
-        string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";             // in JSON-format
-        RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(   // Register the User to Firebase
-            response => { // response is a SignResponse object, FireBase gives us this response
-                idToken = response.idToken;                         // everytime generated when the users signs in
-                localId = response.localId;                         // unique UserId
-                playerName = username;
-                PostToDatabase(true);                               //when register a new user parameter true for the method, so we know its a new user
-                                                                    // (Realtime-Database)
+    private void SignUpUser(string email, string username, string password)
+    {
+        if (password.Length > 5)
+        {
+            string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";             // in JSON-format
+            RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(   // Register the User to Firebase
+                response =>
+                { // response is a SignResponse object, FireBase gives us this response
+                    idToken = response.idToken;                         // everytime generated when the users signs in
+                    localId = response.localId;                         // unique UserId
+                    playerName = username;
+                    PostToDatabase(true);                               //when register a new user parameter true for the method, so we know its a new user
+                                                                        // (Realtime-Database)
 
-                panelManager = PanelManager.GetInstance();
-                panelManager.SwitchCanvas(PanelType.LogInScreen);
-            }).Catch(error => {
-                Debug.Log(error);
-            });
+                    panelManager = PanelManager.GetInstance();
+                    panelManager.SwitchCanvas(PanelType.LogInScreen);
+                }).Catch(error =>
+                {
+                    Debug.Log(error);
+                });
+        }
+        else
+        {
+            Fehlermeldung.gameObject.SetActive(true);
+        }
     }
     private void PostToDatabase(bool newUser = false) {
         User2 user = new User2();
