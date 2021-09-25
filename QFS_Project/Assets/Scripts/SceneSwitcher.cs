@@ -30,11 +30,16 @@ public class SceneSwitcher : MonoBehaviour
     // Deletes additive scene and go back to previous scene at certain panel
     public void EndLobby()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        SceneManager.UnloadSceneAsync("Lobby");
+          //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         
-        panelManager = PanelManager.GetInstance();
+        
+        SceneManager.LoadSceneAsync("Menue");
+        
+        //SceneManager.UnloadSceneAsync("Lobby");
+
+
+         panelManager = PanelManager.GetInstance();
         //lastActivePanel.gameObject.SetActive(false);
-        panelManager.SwitchCanvas(PanelType.MainScreen);
+         panelManager.SwitchCanvas(PanelType.MainScreen);
     }
 }

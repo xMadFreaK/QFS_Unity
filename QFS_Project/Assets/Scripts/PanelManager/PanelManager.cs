@@ -32,7 +32,8 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
             panelControllerList[i].gameObject.SetActive(false);
         }
         
-        SwitchCanvas(PanelType.LogInScreen);                                  //starts with this screen
+        SwitchCanvas(PanelType.LogInScreen);
+        //SwitchCanvas(PanelType.MainScreen); //starts with this screen
 
     }
 
@@ -60,5 +61,21 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
 
     }
 
+
+
+   /* public class Level : MonoBehaviour
+    {
+        public static string PreviousLevel { get; private set; }
+        private void OnDestroy()
+        {
+            PreviousLevel = gameObject.scene.name;
+        }
+
+        private void Start()
+        {
+            Debug.Log(Level.PreviousLevel);  // use this in any level to get the last level.
+        }
+    }
+   */
 
 }    
