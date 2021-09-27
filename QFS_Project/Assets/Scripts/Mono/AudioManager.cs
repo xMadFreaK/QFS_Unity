@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable()]
 public struct SoundParameters
@@ -29,11 +30,19 @@ public class Sound
 
     #endregion
 
-    public void Play ()
+    public void PlaySFX ()
     {
         Source.clip = Clip;
+        Source.volume = Savestuff.sfxvol;
+        Source.pitch = Parameters.Pitch;
+        Source.loop = Parameters.Loop;
 
-        Source.volume = Parameters.Volume;
+        Source.Play();
+    }
+    public void PlayMusic()
+    {
+        Source.clip = Clip;
+        Source.volume = Savestuff.musicvol;
         Source.pitch = Parameters.Pitch;
         Source.loop = Parameters.Loop;
 
@@ -54,6 +63,8 @@ public class AudioManager : MonoBehaviour {
     [SerializeField]    AudioSource     sourcePrefab    = null;
 
     [SerializeField]    String          startupTrack    = String.Empty;
+
+    
 
     #endregion
 
@@ -108,7 +119,14 @@ public class AudioManager : MonoBehaviour {
         var sound = GetSound(name);
         if (sound != null)
         {
-            sound.Play();
+            if (name == "startupTrack")
+            {
+                sound.PlayMusic();
+            }
+            else
+            {
+                sound.PlaySFX();
+            }
         }
         else
         {
