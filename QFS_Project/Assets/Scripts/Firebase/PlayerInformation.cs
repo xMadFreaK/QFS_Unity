@@ -10,6 +10,7 @@ using TMPro;
 public class PlayerInformation : MonoBehaviour {
 
     public TextMeshProUGUI Fehlermeldung;
+    public TextMeshProUGUI Fehlermeldung2;
 
     //AccountCreation
     public TMP_InputField email;                
@@ -119,6 +120,7 @@ public class PlayerInformation : MonoBehaviour {
                 panelManager.SwitchCanvas(PanelType.MainScreen);
                 GetUserInformation();
             }).Catch(error => {
+                Fehlermeldung2.gameObject.SetActive(true);
                 Debug.Log(error.Message);
             });
     }
