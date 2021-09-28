@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 1975896485876146554, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000022888184
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 1975896485920739346, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
@@ -416,6 +416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textAlignment
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975896486350788623, guid: 32c4db3526e047a469e04b901a02af8b,
+        type: 3}
+      propertyPath: sounds.Array.data[3].parameters.Volume
+      value: 0.261
       objectReference: {fileID: 0}
     - target: {fileID: 1975896486430178454, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
@@ -909,6 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb3dc17bc4782545a4cf3f3266f5000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelManager: {fileID: 0}
 --- !u!1 &1950853154
 GameObject:
   m_ObjectHideFlags: 0

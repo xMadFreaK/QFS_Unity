@@ -13,6 +13,7 @@ public class Player : NetworkBehaviour { //so that this script is networkable
     // [SyncVar] public int playerIndex        // Index of player in relation to all the other players in the game - not implemented yet
 
     public string onlineName;
+    public int score = 0;
 
     NetworkMatchChecker networkMatchChecker; // NetworkMatchChecker is the Mirror MatchMaking component. It is used in this script to create the Guid from our matchID
 

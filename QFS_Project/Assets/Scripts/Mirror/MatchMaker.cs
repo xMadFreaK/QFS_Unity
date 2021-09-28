@@ -57,7 +57,7 @@ public class MatchMaker : NetworkBehaviour {
         }
     }
 
-    // Starts a TurnManager
+    // Starts the TurnManager prefab
     // Searches for correct match (this player is in), gets all the players in the match and tells them to start their game
     public void BeginMatch(string _matchID) {
         GameObject newTurnManager = Instantiate(turnManagerPrefab);
