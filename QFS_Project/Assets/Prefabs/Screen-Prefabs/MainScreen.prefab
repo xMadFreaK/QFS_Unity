@@ -296,9 +296,7 @@ PrefabInstance:
     - target: {fileID: 5046343485580583000, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_text
-      value: 'varUsername
-
-        Deine Statisken'
+      value: Deine Statisken
       objectReference: {fileID: 0}
     - target: {fileID: 5046343485580583000, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
@@ -308,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 5046343485580583000, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
       propertyPath: m_fontSize
-      value: 51.15
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 5046343485580583000, guid: bd0381bd94b3ca84a8e7d760ff75b9b2,
         type: 3}
