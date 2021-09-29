@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     #region Variables
 
+    //public ServerLogic serverLogic = new ServerLogic(localPlayer, notLocalPlayer);        is needed for the ServerLogic.cs script
+
     private Data data = new Data();
 
     [SerializeField]    GameEvents          events                  = null;
@@ -305,6 +307,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     private void UpdateScore(int add)
     {
+        //serverLogic.IncreaseScoreLocalPlayer(add);                                            is needed for the ServerLogic.cs script            
         events.CurrentFinalScore += add;
        /*
         * soll der minimale score bei 0 bleiben, einfach die if schleife einsetzen
@@ -319,6 +322,7 @@ public class GameManager : MonoBehaviour {
         var randomIndex = GetRandomQuestionIndex();
         currentQuestion = randomIndex;
 
+        //serverLogic.FillQuestions(data.Questions[currentQuestion]);                          is needed for the ServerLogic.cs script 
         return data.Questions[currentQuestion];
     }
     int GetRandomQuestionIndex()

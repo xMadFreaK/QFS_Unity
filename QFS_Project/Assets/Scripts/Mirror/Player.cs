@@ -121,6 +121,11 @@ public class Player : NetworkBehaviour { //so that this script is networkable
         //Additively load game scene
         SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
+
+    //[ClientRpc]
+    //public void RpcQuesionsHandOverToClients(Question _question) {
+        //GameManager.UpdateAnswers(_question);   error in function, doesn´t work with this GameManager                     mv                      
+    //}
 }
 
     

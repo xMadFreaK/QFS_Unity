@@ -13,7 +13,7 @@ public class PlayerInformation : MonoBehaviour {
     public TextMeshProUGUI Fehlermeldung2;
 
     //AccountCreation
-    public TMP_InputField email;                
+    public TMP_InputField email;
     public TMP_InputField username;
     public TMP_InputField password;
 
@@ -65,14 +65,11 @@ public class PlayerInformation : MonoBehaviour {
     }
 
     // Register new User (Authentification)
-    private void SignUpUser(string email, string username, string password)
-    {
-        if (password.Length > 5)
-        {
+    private void SignUpUser(string email, string username, string password) {
+        if (password.Length > 5) {
             string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";             // in JSON-format
             RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(   // Register the User to Firebase
-                response =>
-                { // response is a SignResponse object, FireBase gives us this response
+                response => { // response is a SignResponse object, FireBase gives us this response
                     idToken = response.idToken;                         // everytime generated when the users signs in
                     localId = response.localId;                         // unique UserId
                     playerName = username;
@@ -81,16 +78,14 @@ public class PlayerInformation : MonoBehaviour {
 
                     panelManager = PanelManager.GetInstance();
                     panelManager.SwitchCanvas(PanelType.LogInScreen);
-                }).Catch(error =>
-                {
+                }).Catch(error => {
                     Debug.Log(error);
                 });
-        }
-        else
-        {
+        } else {
             Fehlermeldung.gameObject.SetActive(true);
         }
     }
+    //Realtime-Database
     private void PostToDatabase(bool newUser = false) {
         User2 user = new User2();
 
@@ -155,6 +150,44 @@ public class PlayerInformation : MonoBehaviour {
         RestClient.Get<User2>(databaseURL + "/" + getLocalId + ".json?auth=" + idToken).Then(response => {
             user = response;            //speichert den user oben im User2-Objekt mit seinen spezifischen Daten (deshalb getLocalId)
             //hier z.B. hat Methode zum Updaten Platz
+        }).Catch(error => {
+            Debug.Log(error);
+        });
+    }
+
+    //increase wins of client
+    public void IncreaseWins() {
+        RestClient.Get<User2>(databaseURL + "/" + getLocalId + ".json?auth=" + idToken).Then(response => {
+            user = response;            //speichert den user oben im User2-Objekt mit seinen spezifischen Daten (deshalb getLocalId)
+            user.zwins = user.zwins + 1;    //Erhöhung des Win-Counters um 1
+            user.zgames = user.zgames + 1;  //Erhöhung des Anzahl-Spiele-Counters um 1
+            PostToDatabase();               //wieder an die Datenbank verschicken
+
+        }).Catch(error => {
+            Debug.Log(error);
+        });
+    }
+
+    //increase losses of client
+    public void IncreaseLoses() {
+        RestClient.Get<User2>(databaseURL + "/" + getLocalId + ".json?auth=" + idToken).Then(response => {
+            user = response;            //speichert den user oben im User2-Objekt mit seinen spezifischen Daten (deshalb getLocalId)
+            user.zlosses = user.zlosses + 1;    //Erhöhung des Win-Counters um 1
+            user.zgames = user.zgames + 1;  //Erhöhung des Anzahl-Spiele-Counters um 1
+            PostToDatabase();               //wieder an die Datenbank verschicken
+
+        }).Catch(error => {
+            Debug.Log(error);
+        });
+    }
+
+    //draw result
+    public void Draw() {
+        RestClient.Get<User2>(databaseURL + "/" + getLocalId + ".json?auth=" + idToken).Then(response => {
+            user = response;            //speichert den user oben im User2-Objekt mit seinen spezifischen Daten (deshalb getLocalId)
+            user.zgames = user.zgames + 1;  //Erhöhung des Anzahl-Spiele-Counters um 1
+            PostToDatabase();               //wieder an die Datenbank verschicken
+
         }).Catch(error => {
             Debug.Log(error);
         });
