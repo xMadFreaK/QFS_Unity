@@ -39,7 +39,7 @@ public class ButtonScript : MonoBehaviour
 
         string url = "http://188.193.204.54:443/Quizzes/" + filet.text + ".csv";
 
-        vidSavePath = Application.streamingAssetsPath;
+        vidSavePath = Path.Combine(Application.persistentDataPath, "/StreamingAssets/");
         vidSavePath = Path.Combine(vidSavePath, filet.text + ".csv");
 
         //Create Directory if it does not exist
