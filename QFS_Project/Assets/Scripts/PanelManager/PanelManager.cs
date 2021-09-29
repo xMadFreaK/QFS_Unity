@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+//defining which panels we have
 public enum PanelType {
     Background,
     AccountCreationScreen,
@@ -32,7 +33,7 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
             panelControllerList[i].gameObject.SetActive(false);
         }
         
-        SwitchCanvas(PanelType.LogInScreen);
+        SwitchCanvas(PanelType.LogInScreen);    //The LogInScreen is the start panel in our Application
         //SwitchCanvas(PanelType.MainScreen); //starts with this screen
 
     }
@@ -47,7 +48,7 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
             Debug.Log("No lastActivePanel");
         }
 
-        PanelController desiredPanel = panelControllerList.Find(x => x.panelType == _type);
+        PanelController desiredPanel = panelControllerList.Find(x => x.panelType == _type);             //determine the desired panel (our _type parameter)
         PanelController backgroundPanel = panelControllerList.Find(y => y.panelType == PanelType.Background);
 
         if (desiredPanel != null) {
@@ -60,22 +61,4 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
         }
 
     }
-
-
-
-   /* public class Level : MonoBehaviour
-    {
-        public static string PreviousLevel { get; private set; }
-        private void OnDestroy()
-        {
-            PreviousLevel = gameObject.scene.name;
-        }
-
-        private void Start()
-        {
-            Debug.Log(Level.PreviousLevel);  // use this in any level to get the last level.
-        }
-    }
-   */
-
 }    

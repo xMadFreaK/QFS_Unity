@@ -90,7 +90,7 @@ public class Player : NetworkBehaviour { //so that this script is networkable
         }
     }
 
-    [TargetRpc]
+    [TargetRpc] //is an information from the server instance directly to the localPlayer
     void TargetJoinGame(bool _success, string _matchID) {
         matchID = _matchID;
         Debug.Log($"MatchID: {matchID} == {_matchID}");
@@ -115,16 +115,16 @@ public class Player : NetworkBehaviour { //so that this script is networkable
         TargetBeginGame();
     }
 
-    [TargetRpc]
+    [TargetRpc] //is an information from the server instance directly to the localPlayer
     public void TargetBeginGame() {
         Debug.Log($"MatchID: {matchID} beginning");
         //Additively load game scene
         SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 
-    //[ClientRpc]
+    //[ClientRpc] this method is created for the ServerLogic.cs script
     //public void RpcQuesionsHandOverToClients(Question _question) {
-        //GameManager.UpdateAnswers(_question);   error in function, doesn´t work with this GameManager                     mv                      
+        //GameManager.UpdateAnswers(_question);   error in function, doesn´t work with this GameManager                                           
     //}
 }
 

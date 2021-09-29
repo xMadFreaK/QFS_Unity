@@ -69,7 +69,7 @@ public class PlayerInformation : MonoBehaviour {
         if (password.Length > 5) {
             string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";             // in JSON-format
             RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + AuthKey, userData).Then(   // Register the User to Firebase
-                response => { // response is a SignResponse object, FireBase gives us this response
+                response => { // response is a SignResponse object, FireBase gives us this response, 
                     idToken = response.idToken;                         // everytime generated when the users signs in
                     localId = response.localId;                         // unique UserId
                     playerName = username;
@@ -78,7 +78,7 @@ public class PlayerInformation : MonoBehaviour {
 
                     panelManager = PanelManager.GetInstance();
                     panelManager.SwitchCanvas(PanelType.LogInScreen);
-                }).Catch(error => {
+                }).Catch(error => {                                     //not successful
                     Debug.Log(error);
                 });
         } else {
@@ -107,20 +107,20 @@ public class PlayerInformation : MonoBehaviour {
     private void SignInUser(string email, string password) {
         string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
         RestClient.Post<SignResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + AuthKey, userData).Then(
-            response => {
+            response => {                                   //successful
                 idToken = response.idToken;
                 localId = response.localId;
 
                 panelManager = PanelManager.GetInstance();
                 panelManager.SwitchCanvas(PanelType.MainScreen);
                 GetUserInformation();
-            }).Catch(error => {
+            }).Catch(error => {                             //not successful
                 Fehlermeldung2.gameObject.SetActive(true);
                 Debug.Log(error.Message);
             });
     }
 
-    private void GetUserInformation() {  //was ist, wenn wir hier alle User-Infos holen? -> Geil
+    private void GetUserInformation() {             //get the user´s information. need this function to show in Statistics screen
         RestClient.Get<User2>(databaseURL + "/" + localId + ".json?auth=" + idToken).Then(response => {
             playerName = response.userName;
             games = response.zgames;
