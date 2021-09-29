@@ -335,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 1975896485876146554, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0.0001373291
       objectReference: {fileID: 0}
     - target: {fileID: 1975896485920739346, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
@@ -427,6 +427,16 @@ PrefabInstance:
       propertyPath: sounds.Array.data[3].clip
       value: 
       objectReference: {fileID: 8300000, guid: 2783396689520d642a3e54bfff509aeb, type: 3}
+    - target: {fileID: 1975896486350788623, guid: 32c4db3526e047a469e04b901a02af8b,
+        type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 01822920594f01a45be24ef4b6962c9b, type: 3}
+    - target: {fileID: 1975896486350788623, guid: 32c4db3526e047a469e04b901a02af8b,
+        type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 964d34ac65e86334c81a4e2926a20270, type: 3}
     - target: {fileID: 1975896486430178454, guid: 32c4db3526e047a469e04b901a02af8b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
