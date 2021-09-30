@@ -650,7 +650,7 @@ MonoBehaviour:
   SelectionButton: {fileID: 0}
   filetext: {fileID: 0}
   filet: {fileID: 0}
-  sheeeesh: 0
+  doesitwork: 0
 --- !u!114 &162979511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2369,7 +2369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -968.8946}
+  m_AnchoredPosition: {x: 0, y: -970.2681}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1026895491
@@ -2454,7 +2454,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 202643611}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.4741974
+  m_Size: 0.47423387
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2565,7 +2565,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter text...(Q2neu)
 --- !u!222 &1068397302
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4631,7 +4631,7 @@ MonoBehaviour:
   SelectionButton: {fileID: 162979505}
   filetext: {fileID: 104945168}
   filet: {fileID: 1934431326}
-  sheeeesh: 0
+  doesitwork: 0
 --- !u!1 &1934431324
 GameObject:
   m_ObjectHideFlags: 0
