@@ -28,7 +28,7 @@ public class UILobby : MonoBehaviour {
         instance = this;      
     }
 
-    // When pressing HOST-Button, buttons will be deactivated to prevent spamming.
+    // When pressing "Match erstellen", buttons will be deactivated to prevent spamming.
     // The local player is now hosting the game.
     public void Host() {
         matchIDInput.interactable = false;      //to not be able to spam the buttons. they are reactivated upon game start (UILobby.BeginGame)

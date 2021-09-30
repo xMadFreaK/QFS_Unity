@@ -33,9 +33,12 @@ public class Player : NetworkBehaviour { //so that this script is networkable
 
     // ***** Host-Section *****
 
-    // called by UILobby.cs by pressing on button "HOST"
+    // called by UILobby.cs by pressing on button "Match erstellen"
     public void HostGame() {
         string matchID = MatchMaker.GetRandomMatchID();                  // gets random match ID from MatchMaker.cs
+        int seed = Savestuff.CreateSeed(matchID);                        // for asnychrone solution
+        Savestuff.seed = seed;                                           //save the generated seed in helper class SaveStuff
+        Debug.Log(Savestuff.seed);
         CmdHostGame(matchID);
     }
 
@@ -71,6 +74,9 @@ public class Player : NetworkBehaviour { //so that this script is networkable
     // ***** Join-Section *****
 
     public void JoinGame(string _inputID) {
+        int seed = Savestuff.CreateSeed(_inputID);
+        Savestuff.seed = seed;
+        Debug.Log(Savestuff.seed);
         CmdJoinGame(_inputID);
     }
 
