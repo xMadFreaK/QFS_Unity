@@ -58,8 +58,7 @@ public class SceneSwitcher : MonoBehaviour
     public void EndLobby()
     {
           //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        if(Savestuff.lastscene != "Lobby")
-        {
+        
             SceneManager.LoadSceneAsync("Menue");
 
             //SceneManager.UnloadSceneAsync("Lobby");
@@ -70,7 +69,7 @@ public class SceneSwitcher : MonoBehaviour
             panelManager.SwitchCanvas(PanelType.MainScreen);
 
             
-        }
+        
         
         
     }
