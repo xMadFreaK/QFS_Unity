@@ -35,8 +35,8 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
             panelControllerList[i].gameObject.SetActive(false);
         }
         
-        if(Savestuff.lastscene == "Lobby" || Savestuff.lastscene == "Game")
-        {
+        if(Savestuff.lastscene == "Lobby" || Savestuff.lastscene == "Game" )
+        { 
             SwitchCanvas(PanelType.MainScreen);
             
         }else 

@@ -36,9 +36,11 @@ public class SceneSwitcher : MonoBehaviour
 
         if (Savestuff.lastscene == "Lobby")
         {
+            Savestuff.lastscene = "Lobby";
             SceneManager.LoadSceneAsync("Lobby");
         }else
         {
+            
             Savestuff.lastscene = "Game";
             SceneManager.LoadSceneAsync("Menue");
 
@@ -57,8 +59,9 @@ public class SceneSwitcher : MonoBehaviour
     // Deletes additive scene and go back to previous scene at certain panel
     public void EndLobby()
     {
-          //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+            Savestuff.lastscene = "Lobby";
             SceneManager.LoadSceneAsync("Menue");
 
             //SceneManager.UnloadSceneAsync("Lobby");
