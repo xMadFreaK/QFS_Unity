@@ -7,4 +7,6 @@ public static class Savestuff
     // Start is called before the first frame update
     public static float sfxvol;
     public static float musicvol;
+    public static string lastscene = "Menue";
+
 }

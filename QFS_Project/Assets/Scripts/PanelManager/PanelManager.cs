@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //defining which panels we have
 public enum PanelType {
@@ -27,15 +28,29 @@ public class PanelManager : Singleton<PanelManager> {                   //derive
     PanelController lastActivePanel;
 
     protected override void Awake() {
+        
         panelControllerList = GetComponentsInChildren<PanelController>().ToList();      //ToList() puts the array from GetComp-method into the list
 
         for(int i = 0; i<panelControllerList.Count; i++) {                              //Deactivate all panels
             panelControllerList[i].gameObject.SetActive(false);
         }
         
-        SwitchCanvas(PanelType.LogInScreen);    //The LogInScreen is the start panel in our Application
+        if(Savestuff.lastscene == "Lobby" || Savestuff.lastscene == "Game")
+        {
+            SwitchCanvas(PanelType.MainScreen);
+            
+        }else 
+        {
+            SwitchCanvas(PanelType.LogInScreen);
+        }
+
+        //The LogInScreen is the start panel in our Application
         //SwitchCanvas(PanelType.MainScreen); //starts with this screen
 
+        //Savestuff.lastscene = "Menue";
+        Savestuff.lastscene = "Menue";
+        PlayerPrefs.SetString("lscene", SceneManager.GetActiveScene().name);
+        
     }
 
     public void SwitchCanvas(PanelType _type) {
