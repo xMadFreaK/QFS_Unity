@@ -33,7 +33,7 @@ public class Sound
     public void PlaySFX ()
     {
         Source.clip = Clip;
-        Source.volume = Savestuff.sfxvol;
+        Source.volume = PlayerPrefs.GetFloat("SFXSlider value");
         Source.pitch = Parameters.Pitch;
         Source.loop = Parameters.Loop;
 
@@ -42,7 +42,7 @@ public class Sound
     public void PlayMusic()
     {
         Source.clip = Clip;
-        Source.volume = Savestuff.musicvol;
+        Source.volume = PlayerPrefs.GetFloat("musicSlider value");
         Source.pitch = Parameters.Pitch;
         Source.loop = Parameters.Loop;
 
