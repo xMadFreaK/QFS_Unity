@@ -6,8 +6,6 @@ using TMPro;
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine.Networking;
-using UnityEngine.Android;
-
 
 public class ButtonScript : MonoBehaviour
 {
@@ -15,43 +13,20 @@ public class ButtonScript : MonoBehaviour
     public static string vidSavePath;
     public TMP_Text filetext;
     public Text filet;
-    public bool sheeeesh = false;
+    public bool doesitwork = false;
 
-   private void AskPermissions()
-    {
-#if UNITY_ANDROID
-    if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite)){
-    Permission.RequestUserPermission(Permission.ExternalStorageWrite);
-    }
-#endif
-    }
-   void Start()
-    {
-        AskPermissions();
-    } 
     IEnumerator DownloadFile()
     {
-        /* var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/" + filet.text + ".xml" , UnityWebRequest.kHttpVerbGET);
-         string path = Path.Combine(Application.persistentDataPath +  "/StreamingAssets/" + filet.text + ".xml");
-         uwr.downloadHandler = new DownloadHandlerFile(path);
-         yield return uwr.SendWebRequest(); */
-
         string url = "http://188.193.204.54:443/Quizzes/" + filet.text + ".csv";
-
-     /*   vidSavePath = Path.Combine(Application.persistentDataPath, "/StreamingAssets/");
-        vidSavePath = Path.Combine(vidSavePath, filet.text + ".csv"); */
-
+        //Der Pfad, indem die heruntergeladenen Quizze gespeichert werden
         vidSavePath = Path.Combine(Application.persistentDataPath, filet.text + ".csv");
 
-        //Create Directory if it does not exist
+        //Erstellt das Verzeichnis, falls es nicht existiert
         if (!Directory.Exists(Path.GetDirectoryName(vidSavePath)))
-
         {
             Directory.CreateDirectory(Path.GetDirectoryName(vidSavePath));
-
         }
-
-
+        //Unity Webrequest
         var uwr = new UnityWebRequest(url);
         uwr.method = UnityWebRequest.kHttpVerbGET;
         var dh = new DownloadHandlerFile(vidSavePath);
@@ -62,44 +37,20 @@ public class ButtonScript : MonoBehaviour
         if (uwr.isNetworkError || uwr.isHttpError)
         {
             Debug.Log(uwr.error);
-            print("hallo");
-
+            print("Server nicht erreichbar");
         }
         else
         {
             Debug.Log("Download saved to: " + vidSavePath.Replace("/", "\\") + "\r\n" + uwr.error);
-            print("läuft");
-            sheeeesh = true;
+            print("Download erfolgreich");
+            doesitwork = true;
         }
-        int c = counting();
-        if (c != 0)
-
+        if (doesitwork)
         {
             print(vidSavePath);
             SelectionButton.SetActive(true);
         }
     }
-
-public int counting()
-    { 
-        int counter = 0;
-string line;
-
-    // Read the file and display it line by line.  
-    System.IO.StreamReader file =
-        new System.IO.StreamReader(vidSavePath);  
-while((line = file.ReadLine()) != null)  {
-
-            System.Console.WriteLine(line);
-    counter++;  
-                                            }                       
-file.Close();
-return counter;
-    }
-
-    
-
- 
 
     public void updateQuizSelect()
     {
@@ -110,55 +61,11 @@ return counter;
 
         print("warte alder");
 
-        //yolo();
         StartCoroutine(DownloadFile());
         Debug.Log("Data is fetched and ready to use");
-        
-
     }
-    // Update is called once per frame
-
     public void Quiz()
     {
         Quizz.Ausprobieren();
     }
-
-     
 }
-
-/* public class FileDownloader : MonoBehaviour
-{
-
-    public void YOLO()
-    {
-        StartCoroutine(DownloadFile());
-    }
-
-    IEnumerator DownloadFile()
-    {
-        string xmlName = GameUtility.xmlFileName;
-        var uwr = new UnityWebRequest("http://188.194.230.87:443/StreamingAssets/", UnityWebRequest.kHttpVerbGET);
-        string path = Path.Combine(Application.persistentDataPath, xmlName);
-        uwr.downloadHandler = new DownloadHandlerFile(path);
-        yield return uwr.SendWebRequest();
-
-    }
-}
-*/
-
-/*
-public class ClickExample : MonoBehaviour
-{
-    public TMPButton SelectionButton;
-
-    void Start()
-    {
-        Button btn = SelectionButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
-    }
-
-    void TaskOnClick()
-    {
-        Debug.Log("You have clicked the button!");
-    }
-}*/
