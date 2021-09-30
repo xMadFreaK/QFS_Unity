@@ -327,7 +327,9 @@ public class GameManager : MonoBehaviour {
     }
     int GetRandomQuestionIndex()
     {
-        Random.InitState(Savestuff.seed);
+        if (Savestuff.seed != 0) {
+            Random.InitState(Savestuff.seed);
+        }
         var random = 0;
         if (FinishedQuestions.Count < data.Questions.Length)
         {
