@@ -6,6 +6,7 @@ using TMPro;
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine.Networking;
+using UnityEngine.Android;
 
 
 public class ButtonScript : MonoBehaviour
@@ -16,20 +17,18 @@ public class ButtonScript : MonoBehaviour
     public Text filet;
     public bool sheeeesh = false;
 
-    /*public void yolo()
+   private void AskPermissions()
     {
-        StartCoroutine(DownloadFile());
-
-        StopCoroutine(DownloadFile());
-        int c = counting();
-        if ( c != 0)
-
-        {
-            print(vidSavePath);
-            SelectionButton.SetActive(true);
-        }
-    }+*/
-
+#if UNITY_ANDROID
+    if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite)){
+    Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+    }
+#endif
+    }
+   void Start()
+    {
+        AskPermissions();
+    } 
     IEnumerator DownloadFile()
     {
         /* var uwr = new UnityWebRequest("http://188.194.230.87:443/Quizzes/" + filet.text + ".xml" , UnityWebRequest.kHttpVerbGET);
@@ -39,8 +38,10 @@ public class ButtonScript : MonoBehaviour
 
         string url = "http://188.193.204.54:443/Quizzes/" + filet.text + ".csv";
 
-        vidSavePath = Path.Combine(Application.persistentDataPath, "/StreamingAssets/");
-        vidSavePath = Path.Combine(vidSavePath, filet.text + ".csv");
+     /*   vidSavePath = Path.Combine(Application.persistentDataPath, "/StreamingAssets/");
+        vidSavePath = Path.Combine(vidSavePath, filet.text + ".csv"); */
+
+        vidSavePath = Path.Combine(Application.persistentDataPath, filet.text + ".csv");
 
         //Create Directory if it does not exist
         if (!Directory.Exists(Path.GetDirectoryName(vidSavePath)))
@@ -79,7 +80,7 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
-        public int counting()
+public int counting()
     { 
         int counter = 0;
 string line;
@@ -91,7 +92,7 @@ while((line = file.ReadLine()) != null)  {
 
             System.Console.WriteLine(line);
     counter++;  
-}
+                                            }                       
 file.Close();
 return counter;
     }
